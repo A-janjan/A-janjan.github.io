@@ -1,0 +1,91 @@
+Arguments: 
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /home/davinci/anaconda3/bin:/home/davinci/anaconda3/condabin:/home/davinci/.local/bin:/home/davinci/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.12.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/colorthief: tunneling socket could not be established, cause=connect ECONNREFUSED 127.0.0.1:8889
+      at ClientRequest.onError (/usr/share/yarn/lib/cli.js:152376:17)
+      at Object.onceWrapper (node:events:633:26)
+      at ClientRequest.emit (node:events:518:28)
+      at Socket.socketErrorListener (node:_http_client:500:9)
+      at Socket.emit (node:events:518:28)
+      at emitErrorNT (node:internal/streams/destroy:169:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "homepage": "https://a-janjan.github.io/",
+    "name": "Janjan-Portfolio",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "colorthief": "^2.2.0",
+      "enzyme": "^3.11.0",
+      "enzyme-adapter-react-16": "^1.15.6",
+      "gh-pages": "^2.2.0",
+      "jest-canvas-mock": "^2.3.1",
+      "lottie-react": "^2.4.0",
+      "react": "^16.10.2",
+      "react-dom": "^16.10.2",
+      "react-easy-emoji": "^1.8.1",
+      "react-headroom": "^3.0.0",
+      "react-reveal": "^1.2.2",
+      "react-scripts": "^3.0.1",
+      "react-test-renderer": "^16.10.2",
+      "react-twitter-embed": "3.0.3",
+      "sass": "^1.32.8"
+    },
+    "scripts": {
+      "predeploy": "npm run build",
+      "start": "node fetch.js && react-scripts start",
+      "build": "node fetch.js && react-scripts build",
+      "deploy": "gh-pages -b master -d build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
+      "check-format": "prettier -c \"./**/*.{js,css,json,scss}\""
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.3%",
+        "not ie 11",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        ">0.3%",
+        "not ie 11",
+        "not dead",
+        "not op_mini all",
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+      "dotenv": "^8.2.0",
+      "prettier": "^2.3.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
