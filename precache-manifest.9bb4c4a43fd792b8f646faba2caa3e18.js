@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e2fb17c861b7b40a1076e8035266da5e",
+    "revision": "face56b011bb30f8b0dcbfa465312287",
     "url": "/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/4.d7ceb645.chunk.css"
   },
   {
-    "revision": "8cf2b6964f71082a336a",
+    "revision": "3c72f4a90facb67bd9df",
     "url": "/static/css/main.13b574e9.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/4.14a270a9.chunk.js"
   },
   {
-    "revision": "8cf2b6964f71082a336a",
-    "url": "/static/js/main.4f8b9ce8.chunk.js"
+    "revision": "3c72f4a90facb67bd9df",
+    "url": "/static/js/main.dcf02c63.chunk.js"
   },
   {
     "revision": "d2bd722f6d5967adc920",
@@ -64,12 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/developerActivity.59389695.svg"
   },
   {
-    "revision": "e79c639294c805688be731921368c8f8",
-    "url": "/static/media/googleAssistantLogo.e79c6392.webp"
+    "revision": "e06972851a9a1cd5b66cedfb7fc070b7",
+    "url": "/static/media/freelancer.e0697285.png"
   },
   {
-    "revision": "d9293d044adab8c2f9389115467b9584",
-    "url": "/static/media/logo_freelancer.d9293d04.png"
+    "revision": "e79c639294c805688be731921368c8f8",
+    "url": "/static/media/googleAssistantLogo.e79c6392.webp"
   },
   {
     "revision": "52be31441c8cf8a8a16bd7a228d428bf",
