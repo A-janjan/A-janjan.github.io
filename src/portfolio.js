@@ -26,7 +26,7 @@ const greeting = {
     "A passionate AI and Software Developer 🚀 having an experience of building Web applications with Python / Django / JavaScript / PostgreSQL and do some projects in Computer Vision and Robotics."
   ),
   resumeLink:
-    "mailto:a.m.x.janjan@gmail.com?subject=Get%20Resume%20From%GitHub", // Set to empty to hide the button
+    "mailto:a.m.x.janjan@gmail.com?subject=Get%20Resume%20From%20GitHub", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -34,7 +34,7 @@ const greeting = {
 
 const socialMediaLinks = {
   github: "https://github.com/A-janjan",
-  linkedin: "www.linkedin.com/in/amir-mohammad-janjan-181707286",
+  linkedin: "https://www.linkedin.com/in/amir-mohammad-janjan-181707286",
   gmail: "a.m.x.janjan@gmail.com",
   gitlab: "https://gitlab.com/a_janjan",
   instagram: "https://www.instagram.com/a.m.x.janjan/",
@@ -96,14 +96,6 @@ https://fontawesome.com/icons?d=gallery */
       skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
     },
-    {
-      skillName: "github",
-      fontAwesomeClassname: "fa-brands fa-github"
-    },
-    {
-      skillName: "git",
-      fontAwesomeClassname: "fa-solid fa-code-branch"
-    },
 
   ],
   display: true // Set false to hide this section, defaults to true
@@ -137,7 +129,7 @@ const educationInfo = {
       duration: "2013 -> 2019",
       desc: "Courses and Achievements:",
       descBullets: [
-        "Rank 1st Among students.",
+        "Rank 1st Among school students.",
         "Ranked top 1% in Iranian University Entrance Exam.",
         "Gaining comprehensive knowledge in Mathematics and Physics.",
         "Gaining experience in C/C++ programming.",
@@ -188,7 +180,7 @@ const workExperiences = {
     {
       role: "Full-Stack Developer",
       company: "Freelancer",
-      companylogo: require("./assets/images/logo_freelancer.png"),
+      companylogo: require("./assets/images/freelancer.png"),
       date: "June 2022 – October 2022",
       desc: "Building e-commerce website",
       descBullets: [
@@ -242,27 +234,7 @@ const achievementSection = {
     "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
 
   achievementsCards: [
-    {
-      title: "Google Code-In Finalist",
-      subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
-      footerLink: [
-        {
-          name: "Certification",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dYkVvNjdNWjNybWJrbndFSHpNY2NFV1p4YmU0/view?usp=sharing"
-        },
-        {
-          name: "Award Letter",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dekxBTW5hQkg2WXUyR3QzQmR0VERiLXlGRVdF/view?usp=sharing"
-        },
-        {
-          name: "Google Code-in Blog",
-          url: "https://opensource.googleblog.com/2019/01/google-code-in-2018-winners.html"
-        }
-      ]
-    },
+    
     {
       title: "Google Assistant Action",
       subtitle:
@@ -277,19 +249,7 @@ const achievementSection = {
       ]
     },
 
-    {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
-      imageAlt: "PWA Logo",
-      footerLink: [
-        { name: "Certification", url: "" },
-        {
-          name: "Final Project",
-          url: "https://pakistan-olx-1.firebaseapp.com/"
-        }
-      ]
-    }
+
   ],
   display: false // Set false to hide this section, defaults to true
 };
@@ -308,12 +268,7 @@ const blogSection = {
       description:
         "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
     },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
-    }
+    
   ],
   display: false // Set false to hide this section, defaults to true
 };
@@ -362,10 +317,10 @@ const contactInfo = {
 
 const twitterDetails = {
   userName: "AMXJanjan", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
+  display: false // Set true to display this section, defaults to false
 };
 
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
