@@ -23,10 +23,10 @@ const greeting = {
   username: "Amir Mohammad Janjan",
   title: "Hi all, I'm AMIR JJ",
   subTitle: emoji(
-    "A passionate AI and Software Developer 🚀 having an experience of building Web applications with Python / Django / JavaScript / PostgreSQL and do some projects in Computer Vision and Robotics."
+    "A passionate AI and software developer 🚀 with experience building web applications using Python and JavaScript. Also proficient in projects involving computer vision and robotics."
   ),
   resumeLink:
-    "mailto:a.m.x.janjan@gmail.com?subject=Get%20Resume%20From%20GitHub", // Set to empty to hide the button
+    "mailto:a.m.x.janjan@gmail.com?subject=Request%20Resume%20From%20GitHubIO", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -154,6 +154,18 @@ const techStack = {
     {
       Stack: "Programming",
       progressPercentage: "70%"
+    },
+    {
+      Stack: "Machine learning",
+      progressPercentage: "70%"
+    },
+    {
+      Stack: "Computer Vision",
+      progressPercentage: "60%"
+    },
+    {
+      Stack: "Natural Language Processing",
+      progressPercentage: "40%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
