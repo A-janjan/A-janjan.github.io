@@ -20,7 +20,7 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Amir Janjan",
+  username: "Amir Mohammad Janjan",
   title: "Hi all, I'm AMIR JJ",
   subTitle: emoji(
     "A passionate AI and Software Developer 🚀 having an experience of building Web applications with Python / Django / JavaScript / PostgreSQL and do some projects in Computer Vision and Robotics."
