@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afc83f03980a4dc2f638b331fd64912e",
+    "revision": "6fa74b14e4ab691b1f47c6806ea7d172",
     "url": "/index.html"
   },
   {
@@ -12,16 +12,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/4.d7ceb645.chunk.css"
   },
   {
-    "revision": "cabead7695ea9f1a5ddd",
+    "revision": "e0b147cf2ae4b4527ef3",
     "url": "/static/css/main.13b574e9.chunk.css"
   },
   {
-    "revision": "1220a4bc395288204074",
-    "url": "/static/js/2.fbe276a3.chunk.js"
+    "revision": "fdc89f84b53fd685b440",
+    "url": "/static/js/2.168beb89.chunk.js"
   },
   {
     "revision": "d4d701abc30fcef5f714584a64df6e82",
-    "url": "/static/js/2.fbe276a3.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.168beb89.chunk.js.LICENSE.txt"
   },
   {
     "revision": "6595bd9bfd556c348ac1",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/4.14a270a9.chunk.js"
   },
   {
-    "revision": "cabead7695ea9f1a5ddd",
-    "url": "/static/js/main.18a56b6f.chunk.js"
+    "revision": "e0b147cf2ae4b4527ef3",
+    "url": "/static/js/main.51e8692e.chunk.js"
   },
   {
     "revision": "d2bd722f6d5967adc920",
@@ -56,6 +56,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Sampad.d5614c29.png"
   },
   {
+    "revision": "77789ebc1d755035ac24977f86c376c2",
+    "url": "/static/media/Sanjesh_logo.77789ebc.png"
+  },
+  {
     "revision": "51cf7192327488da3d2a171280680c16",
     "url": "/static/media/contactMailDark.51cf7192.svg"
   },
@@ -66,10 +70,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e06972851a9a1cd5b66cedfb7fc070b7",
     "url": "/static/media/freelancer.e0697285.png"
-  },
-  {
-    "revision": "e79c639294c805688be731921368c8f8",
-    "url": "/static/media/googleAssistantLogo.e79c6392.webp"
   },
   {
     "revision": "52be31441c8cf8a8a16bd7a228d428bf",
