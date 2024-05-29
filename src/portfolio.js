@@ -248,22 +248,53 @@ const achievementSection = {
   achievementsCards: [
     
     {
-      title: "Google Assistant Action",
+      title: "1st rank in the information technology(IT) national entrance exam",
       subtitle:
-        "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
-      imageAlt: "Google Assistant Action Logo",
+        "February 2024",
+      image: require("./assets/images/Sanjesh_logo.png"),
+      imageAlt: "Sanjesh Logo",
+      
       footerLink: [
         {
-          name: "View Google Assistant Action",
-          url: "https://assistant.google.com/services/a/uid/000000100ee688ee?hl=en"
+          name: "MSc Konkur",
+          url: "#"
+        }
+      ]
+    },
+
+    {
+      title: "14st rank in the artificial intelligence national entrance exam",
+      subtitle:
+        "February 2024",
+      image: require("./assets/images/Sanjesh_logo.png"),
+      imageAlt: "Sanjesh Logo",
+      
+      footerLink: [
+        {
+          name: "MSc Konkur",
+          url: "#"
+        }
+      ]
+    },
+
+    {
+      title: "18st rank in the software engineering national entrance exam",
+      subtitle:
+        "February 2024",
+      image: require("./assets/images/Sanjesh_logo.png"),
+      imageAlt: "Sanjesh Logo",
+      
+      footerLink: [
+        {
+          name: "MSc Konkur",
+          url: "#"
         }
       ]
     },
 
 
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
