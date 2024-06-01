@@ -263,7 +263,7 @@ const achievementSection = {
     },
 
     {
-      title: "14st rank in the artificial intelligence national entrance exam",
+      title: "14th rank in the artificial intelligence national entrance exam",
       subtitle:
         "February 2024",
       image: require("./assets/images/Sanjesh_logo.png"),
@@ -278,7 +278,7 @@ const achievementSection = {
     },
 
     {
-      title: "18st rank in the software engineering national entrance exam",
+      title: "18th rank in the software engineering national entrance exam",
       subtitle:
         "February 2024",
       image: require("./assets/images/Sanjesh_logo.png"),
