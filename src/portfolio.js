@@ -37,7 +37,6 @@ const socialMediaLinks = {
   linkedin: "https://www.linkedin.com/in/amir-mohammad-janjan-181707286",
   gmail: "a.m.x.janjan@gmail.com",
   gitlab: "https://gitlab.com/a_janjan",
-  instagram: "https://www.instagram.com/a.m.x.janjan/",
   twitter: "https://twitter.com/AMXJanjan",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
