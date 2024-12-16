@@ -21,9 +21,9 @@ const illustration = {
 
 const greeting = {
   username: "Amir Janjan",
-  title: "Hi all, I'm AMIR JJ",
+  title: "Hi all, I'm Amir M. Janjan",
   subTitle: emoji(
-    "A passionate AI and software developer 🚀 with experience building web applications using Python and JavaScript. Also proficient in projects involving computer vision and robotics."
+    "A passionate AI and software developer 🚀 with experience building web applications. Also proficient in projects involving computer vision and robotics."
   ),
   resumeLink:
     "mailto:a.m.x.janjan@gmail.com?subject=Request%20Resume%20From%20GitHubIO", // Set to empty to hide the button
@@ -50,9 +50,10 @@ const skillsSection = {
   subTitle: "AN AUTOMATION ENGINEER WHO WANTS TO DO USEFUL THINGS",
   skills: [
     emoji(
-      "⚡ Develop Softwares with Python"
+      "⚡ Developing Softwares"
     ),
-    emoji("⚡ Making AI based Softwares "),
+    emoji("⚡ Automating tasks vi AI "),
+    emoji("⚡ Designing arcitecture for AI-based agents "),
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -106,6 +107,16 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
+      schoolName: "University of Tehran",
+      logo: require("./assets/images/ut_logo.png"),
+      subHeader: "Master of Science in Artificial Inteligence and Robotics",
+      duration: " 2024 -> now ",
+      desc: "Description:",
+      descBullets: [
+        "Working on LxM agents especially LLM agents",
+      ]
+    },
+    {
       schoolName: "Iran University of Science and Technology",
       logo: require("./assets/images/Logo-IUST.png"),
       subHeader: "Bachelor of Science in Electrical and Control Engineering",
@@ -143,29 +154,17 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
-      progressPercentage: "30%" //Insert relative proficiency in percentage
-    },
-    {
       Stack: "Backend",
-      progressPercentage: "80%"
-    },
-    {
-      Stack: "Programming",
-      progressPercentage: "70%"
+      progressPercentage: "60%"
     },
     {
       Stack: "Machine learning",
       progressPercentage: "70%"
     },
     {
-      Stack: "Computer Vision",
-      progressPercentage: "60%"
+      Stack: "DevOps",
+      progressPercentage: "30%"
     },
-    {
-      Stack: "Natural Language Processing",
-      progressPercentage: "40%"
-    }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
@@ -175,6 +174,18 @@ const techStack = {
 const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
+    {
+      role: "Engineer of Phone-Based Tracking Robot",
+      company: "IUST Robotics Lab",
+      companylogo: require("./assets/images/cvlab_logo.png"),
+      date: "January 2024 – July 2024",
+      desc: "Building phone-based robot that can tracks humans. All processing takes place in the smartphone.Control commands are calculated based on the image received in the smartphone.Doing Project at IUST Robotics Lab, Iran University of Science and Technology, Tehran",
+      descBullets: [
+        "Engineered a robot with integrated mechanical, electronic, and AI systems.",
+        "Programmed and evaluated neural networks for image processing and autonomous navigation.",
+        "Spearheaded troubleshooting and optimization efforts.",
+      ]
+    },
     {
       role: "Programmer and Optimizer",
       company: "IUST CVLab",
@@ -263,21 +274,6 @@ const achievementSection = {
 
     {
       title: "14th rank in the artificial intelligence national entrance exam",
-      subtitle:
-        "February 2024",
-      image: require("./assets/images/Sanjesh_logo.png"),
-      imageAlt: "Sanjesh Logo",
-      
-      footerLink: [
-        {
-          name: "MSc Konkur",
-          url: "#"
-        }
-      ]
-    },
-
-    {
-      title: "18th rank in the software engineering national entrance exam",
       subtitle:
         "February 2024",
       image: require("./assets/images/Sanjesh_logo.png"),
