@@ -52,7 +52,7 @@ const skillsSection = {
     emoji(
       "⚡ Developing Softwares"
     ),
-    emoji("⚡ Automating tasks vi AI "),
+    emoji("⚡ Automating tasks via AI "),
     emoji("⚡ Designing arcitecture for AI-based agents "),
   ],
 
@@ -177,10 +177,12 @@ const workExperiences = {
     {
       role: "Engineer of Phone-Based Tracking Robot",
       company: "IUST Robotics Lab",
-      companylogo: require("./assets/images/cvlab_logo.png"),
+      companylogo: require("./assets/images/Logo-IUST.png"),
       date: "January 2024 – July 2024",
-      desc: "Building phone-based robot that can tracks humans. All processing takes place in the smartphone.Control commands are calculated based on the image received in the smartphone.Doing Project at IUST Robotics Lab, Iran University of Science and Technology, Tehran",
+      desc: "Building phone-based robot that can tracks humans.",
       descBullets: [
+        "All processing takes place in the smartphone.",
+        "Control commands are calculated based on the image received in the smartphone.",
         "Engineered a robot with integrated mechanical, electronic, and AI systems.",
         "Programmed and evaluated neural networks for image processing and autonomous navigation.",
         "Spearheaded troubleshooting and optimization efforts.",
