@@ -113,7 +113,7 @@ const educationInfo = {
       duration: " 2024 -> now ",
       desc: "Description:",
       descBullets: [
-        "Working on LxM agents especially LLM agents",
+        "Working on LxMs especially LLM agents",
       ]
     },
     {
@@ -135,7 +135,7 @@ const educationInfo = {
     {
       schoolName: "National Organization for Development of Exceptional Talents(Sampad)",
       logo: require("./assets/images/Sampad.png"),
-      subHeader: "",
+      subHeader: "Diploma of Mathematical and technical sciences",
       duration: "2013 -> 2019",
       desc: "Courses and Achievements:",
       descBullets: [
