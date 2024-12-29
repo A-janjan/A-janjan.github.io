@@ -114,6 +114,7 @@ const educationInfo = {
       desc: "Description:",
       descBullets: [
         "Working on LxMs especially LLM agents",
+        "Developing and working on Generative AI",
       ]
     },
     {
