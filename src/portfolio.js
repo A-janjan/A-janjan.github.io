@@ -275,20 +275,7 @@ const achievementSection = {
       ]
     },
 
-    {
-      title: "14th rank in the artificial intelligence national entrance exam",
-      subtitle:
-        "February 2024",
-      image: require("./assets/images/Sanjesh_logo.png"),
-      imageAlt: "Sanjesh Logo",
-      
-      footerLink: [
-        {
-          name: "MSc Konkur",
-          url: "#"
-        }
-      ]
-    },
+    
 
 
   ],
