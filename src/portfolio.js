@@ -292,9 +292,9 @@ const blogSection = {
   blogs: [
     {
       url: "https://medium.com/@a.m.x.janjan/",
-      //title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
-      //description:
-      //  "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
+      title: "MEDIUM.COM",
+      description:
+        "I enjoy sharing my knowledge on Medium.com across a variety of fields to help and inspire others."
     },
     
   ],
