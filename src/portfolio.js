@@ -23,12 +23,13 @@ const greeting = {
   username: "Amir Janjan",
   title: "Hi all, I'm Amir M. Janjan",
   subTitle: emoji(
-    "A passionate AI and software developer 🚀 with experience building web applications. Also proficient in projects involving computer vision and robotics."
+    "An AI and backend developer 🚀 with a strong background in Machine Learning, NLP, and Large Language Models. Skilled in building scalable web systems, generative AI applications, and intelligent robotics solutions."
   ),
   resumeLink:
-    "mailto:a.m.x.janjan@gmail.com?subject=Request%20Resume%20From%20GitHubIO", // Set to empty to hide the button
+    "https://www.notion.so/2360f0296e1980d3b005fac449c49b87?v=2360f0296e19814ba60f000c43e9d543", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
+
 
 // Social Media Links
 
@@ -36,7 +37,7 @@ const socialMediaLinks = {
   github: "https://github.com/A-janjan",
   linkedin: "https://www.linkedin.com/in/amir-mohammad-janjan-181707286",
   gmail: "a.m.x.janjan@gmail.com",
-  gitlab: "https://gitlab.com/a_janjan",
+  // gitlab: "https://gitlab.com/a_janjan",
   twitter: "https://twitter.com/AMXJanjan",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
@@ -44,61 +45,65 @@ const socialMediaLinks = {
 };
 
 // Skills Section
-
 const skillsSection = {
-  title: "What I do",
-  subTitle: "AN AUTOMATION ENGINEER WHO WANTS TO DO USEFUL THINGS",
+  title: "What I Do",
+  subTitle: "AI & Backend Developer specializing in Machine Learning, NLP, LLMs, and scalable systems",
   skills: [
-    emoji(
-      "⚡ Developing Softwares"
-    ),
-    emoji("⚡ Automating tasks via AI "),
-    emoji("⚡ Designing arcitecture for AI-based agents "),
+    emoji("⚡ Building production-grade Machine Learning and NLP solutions"),
+    emoji("⚡ Fine-tuning and deploying Large Language Models (LLMs) using LoRA/QLoRA"),
+    emoji("⚡ Developing scalable APIs and backend systems with FastAPI and Django"),
+    emoji("⚡ Creating intelligent robotics and computer vision applications"),
+    emoji("⚡ Automating development and deployment pipelines using Docker & GitHub Actions")
   ],
 
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
-
+  /* Font Awesome Classnames for display icons */
   softwareSkills: [
     {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
+      skillName: "Python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
-      skillName: "docker",
+      skillName: "C++",
+      fontAwesomeClassname: "fas fa-code"
+    },
+    {
+      skillName: "PyTorch",
+      fontAwesomeClassname: "fas fa-brain"
+    },
+    {
+      skillName: "TensorFlow",
+      fontAwesomeClassname: "fas fa-project-diagram"
+    },
+    {
+      skillName: "scikit-learn",
+      fontAwesomeClassname: "fas fa-chart-line"
+    },
+    {
+      skillName: "FastAPI",
+      fontAwesomeClassname: "fas fa-rocket"
+    },
+    {
+      skillName: "Django",
+      fontAwesomeClassname: "fas fa-server"
+    },
+    {
+      skillName: "PostgreSQL",
+      fontAwesomeClassname: "fas fa-database"
+    },
+    {
+      skillName: "Docker",
       fontAwesomeClassname: "fab fa-docker"
     },
-
+    {
+      skillName: "GitHub Actions",
+      fontAwesomeClassname: "fab fa-github"
+    },
+    {
+      skillName: "Linux",
+      fontAwesomeClassname: "fab fa-linux"
+    }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true // Keep true to show on your website
 };
 
 // Education Section
