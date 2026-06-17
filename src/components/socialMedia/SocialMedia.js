@@ -1,6 +1,6 @@
 import React from "react";
 import "./SocialMedia.scss";
-import {socialMediaLinks} from "../../portfolio";
+import { socialMediaLinks } from "../../portfolio";
 
 export default function socialMedia() {
   if (!socialMediaLinks.display) {
@@ -112,6 +112,18 @@ export default function socialMedia() {
           rel="noopener noreferrer"
         >
           <i className="fab fa-stack-overflow"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.hashnode ? (
+        <a
+          href={socialMediaLinks.hashnode}
+          className="icon-button hashnode"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-hashnode"></i>
           <span></span>
         </a>
       ) : null}

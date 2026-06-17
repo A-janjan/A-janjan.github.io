@@ -1,5 +1,8 @@
 @import "../../_globalColor";
 
+
+$hashnode: #2d3748;
+
 .social-media-div {
   font-size: 2em;
 }
@@ -82,9 +85,18 @@
   background-color: $textColor;
 }
 
+.hashnode i:hover {
+  background-color: $textColor;
+}
+
 /* Media Query */
 @media (max-width: 768px) {
   .social-media-div {
     text-align: center;
   }
+}
+
+
+.hashnode i {
+  background-color: $hashnode;
 }

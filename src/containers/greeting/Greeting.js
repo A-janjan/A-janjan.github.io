@@ -32,7 +32,7 @@ export default function Greeting() {
                 className={
                   isDark
                     ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
+                    : "greeting-text-p subTitle"  
                 }
               >
                 {greeting.subTitle}

@@ -20,10 +20,10 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Amir Janjan",
+  username: "Amir M. Janjan",
   title: "Hi all, I'm Amir M. Janjan",
   subTitle: emoji(
-    "An AI and backend developer 🚀 with a strong background in Machine Learning, NLP, and Large Language Models. Skilled in building scalable web systems, generative AI applications, and intelligent robotics solutions."
+    "AI Engineer 🚀 specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance. Experienced in developing agentic AI applications, generative AI systems, and scalable backend solutions using modern AI frameworks."
   ),
   resumeLink:
     "https://www.notion.so/2360f0296e1980d3b005fac449c49b87?v=2360f0296e19814ba60f000c43e9d543", // Set to empty to hide the button
@@ -39,6 +39,7 @@ const socialMediaLinks = {
   gmail: "a.m.x.janjan@gmail.com",
   // gitlab: "https://gitlab.com/a_janjan",
   twitter: "https://twitter.com/AMXJanjan",
+  hashnode: "https://a-janjan.hashnode.dev/",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -47,13 +48,14 @@ const socialMediaLinks = {
 // Skills Section
 const skillsSection = {
   title: "What I Do",
-  subTitle: "AI & Backend Developer specializing in Machine Learning, NLP, LLMs, and scalable systems",
+  subTitle: "AI Engineer specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance",
+
   skills: [
-    emoji("⚡ Building production-grade Machine Learning and NLP solutions"),
-    emoji("⚡ Fine-tuning and deploying Large Language Models (LLMs) using LoRA/QLoRA"),
-    emoji("⚡ Developing scalable APIs and backend systems with FastAPI and Django"),
-    emoji("⚡ Creating intelligent robotics and computer vision applications"),
-    emoji("⚡ Automating development and deployment pipelines using Docker & GitHub Actions")
+    emoji("⚡ Designing and developing LLM-powered agents and multi-agent AI systems"),
+    emoji("⚡ Building agentic workflows with planning, reasoning, memory, and tool-use capabilities"),
+    emoji("⚡ Developing AI solutions for quantitative finance, financial analysis, and algorithmic trading"),
+    emoji("⚡ Creating production-ready AI applications using Python, LangChain, FastAPI, and modern LLM frameworks"),
+    emoji("⚡ Deploying and optimizing machine learning and generative AI systems with Docker and cloud technologies")
   ],
 
   /* Font Awesome Classnames for display icons */
@@ -79,6 +81,22 @@ const skillsSection = {
       fontAwesomeClassname: "fas fa-chart-line"
     },
     {
+      skillName: "Hugging Face",
+      fontAwesomeClassname: "fas fa-robot"
+    },
+    {
+      skillName: "LangChain",
+      fontAwesomeClassname: "fas fa-link"
+    },
+    {
+      skillName: "LangGraph",
+      fontAwesomeClassname: "fas fa-sitemap"
+    },
+    {
+      skillName: "FAISS",
+      fontAwesomeClassname: "fas fa-search"
+    },
+    {
       skillName: "FastAPI",
       fontAwesomeClassname: "fas fa-rocket"
     },
@@ -95,12 +113,16 @@ const skillsSection = {
       fontAwesomeClassname: "fab fa-docker"
     },
     {
-      skillName: "GitHub Actions",
-      fontAwesomeClassname: "fab fa-github"
-    },
-    {
       skillName: "Linux",
       fontAwesomeClassname: "fab fa-linux"
+    },
+    {
+      skillName: "Git",
+      fontAwesomeClassname: "fab fa-git-alt"
+    },
+    {
+      skillName: "GitHub Actions",
+      fontAwesomeClassname: "fab fa-github"
     }
   ],
   display: true // Keep true to show on your website
@@ -114,12 +136,14 @@ const educationInfo = {
     {
       schoolName: "University of Tehran",
       logo: require("./assets/images/ut_logo.png"),
-      subHeader: "Master of Science in Artificial Inteligence and Robotics",
-      duration: " 2024 -> now ",
-      desc: "Description:",
+      subHeader: "Master of Science in Artificial Intelligence and Robotics",
+      duration: "2024 – Present",
+      desc: "Focused on agentic AI, large language models, and quantitative finance applications.",
       descBullets: [
-        "Working on LxMs especially LLM agents",
-        "Developing and working on Generative AI",
+        "Researching autonomous LLM agents and multi-agent systems for complex decision-making tasks.",
+        "Building AI applications using generative AI, retrieval-augmented generation (RAG), and agent frameworks.",
+        "Exploring planning, reasoning, memory, and tool-use capabilities of AI agents.",
+        "Developing a multi-agent quantitative finance platform as part of my master's thesis."
       ]
     },
     {
@@ -160,16 +184,16 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Backend",
-      progressPercentage: "60%"
+      Stack: "LLM Agents",
+      progressPercentage: "80%"
     },
     {
       Stack: "Machine learning",
       progressPercentage: "70%"
     },
     {
-      Stack: "DevOps",
-      progressPercentage: "30%"
+      Stack: "Quant Finance",
+      progressPercentage: "50%"
     },
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -181,43 +205,58 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Engineer of Phone-Based Tracking Robot",
-      company: "IUST Robotics Lab",
-      companylogo: require("./assets/images/Logo-IUST.png"),
-      date: "January 2024 – July 2024",
-      desc: "Building phone-based robot that can tracks humans.",
+      role: "Research Assistant",
+      company: "University of Tehran NLP Lab",
+      companylogo: require("./assets/images/University_of_Tehran_logo.png"),
+      date: "Nov 2024 – Present",
+      desc: "Conducting research on multi-agent LLM systems, with a focus on planning, reasoning, and decision-making for real-world applications.",
       descBullets: [
-        "All processing takes place in the smartphone.",
-        "Control commands are calculated based on the image received in the smartphone.",
-        "Engineered a robot with integrated mechanical, electronic, and AI systems.",
-        "Programmed and evaluated neural networks for image processing and autonomous navigation.",
-        "Spearheaded troubleshooting and optimization efforts.",
+        "Developing LLM-based agents for task automation and decision support.",
+        "Researching agentic AI approaches for travel planning and complex decision-making.",
+        "Designing and evaluating LLM-driven agents for financial and investment applications.",
+        "Investigating multi-agent architectures for quantitative finance and algorithmic trading systems."
       ]
     },
     {
-      role: "Programmer and Optimizer",
+      role: "Robotics Engineer",
+      company: "IUST Robotics Lab",
+      companylogo: require("./assets/images/Logo-IUST.png"),
+      date: "Jan 2024 – Jul 2024",
+      desc: "Developed a smartphone-based autonomous robot capable of real-time human tracking using onboard computer vision and control algorithms.",
+      descBullets: [
+        "Designed a robot architecture where all perception and decision-making processes were executed on a smartphone.",
+        "Implemented vision-based control algorithms to generate robot motion commands from camera input.",
+        "Integrated mechanical, electronic, and AI components into a fully functional robotic platform.",
+        "Developed and evaluated deep learning models for visual perception and target tracking.",
+        "Performed system debugging, optimization, and performance evaluation for reliable real-time operation."
+      ]
+    },
+    {
+      role: "Computer Vision Engineer Intern",
       company: "IUST CVLab",
       companylogo: require("./assets/images/cvlab_logo.png"),
-      date: "July 2023 – September 2023",
-      desc: "Internship at Computer Vision Lab, Iran University of Science and Technology, Tehran",
+      date: "Jul 2023 – Sep 2023",
+      desc: "Worked on computer vision and deep learning projects, focusing on model optimization and deployment on edge AI platforms.",
       descBullets: [
-        "Optimizing Neural Networks with TensorRT.",
-        "Train neural networks and inference with NVIDIA Jetson AGX Xavier.",
-        "Develop some projects about object detection, template matching, and face detection.",
-        "Gaining experience in building neural nets with Pytorch and TensorFlow.",
+        "Optimized deep learning models using NVIDIA TensorRT for accelerated inference.",
+        "Trained, deployed, and benchmarked neural networks on NVIDIA Jetson AGX Xavier.",
+        "Developed computer vision applications including object detection, face detection, and template matching.",
+        "Built and evaluated deep learning models using PyTorch and TensorFlow.",
+        "Gained hands-on experience with edge AI deployment and performance optimization."
       ]
     },
     {
       role: "Full-Stack Developer",
-      company: "Freelancer",
+      company: "Freelance",
       companylogo: require("./assets/images/freelancer.png"),
-      date: "June 2022 – October 2022",
-      desc: "Building e-commerce website",
+      date: "Jun 2022 – Oct 2022",
+      desc: "Designed and developed a full-stack e-commerce platform from development to deployment.",
       descBullets: [
-        "Design website with Django framework as back-end framework.",
-        "Designing beautiful and user-friendly UI/UX.",
-        "Use PostgreSQL as DataBase.",
-        "Deploy website on PaaS.",
+        "Developed backend services and APIs using Django.",
+        "Designed responsive and user-friendly UI/UX for the e-commerce platform.",
+        "Implemented data management and persistence using PostgreSQL.",
+        "Deployed and maintained the application on a cloud-based PaaS environment.",
+        "Managed the complete software development lifecycle, from requirements gathering to deployment."
       ]
     },
 
@@ -250,7 +289,7 @@ const bigProjects = {
         //  you can add extra buttons here.
       ]
     },
-    
+
   ],
   display: false // Set false to hide this section, defaults to true
 };
@@ -264,14 +303,14 @@ const achievementSection = {
     "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
 
   achievementsCards: [
-    
+
     {
       title: "1st rank in the information technology(IT) national entrance exam",
       subtitle:
         "February 2024",
       image: require("./assets/images/Sanjesh_logo.png"),
       imageAlt: "Sanjesh Logo",
-      
+
       footerLink: [
         {
           name: "MSc Konkur",
@@ -280,7 +319,7 @@ const achievementSection = {
       ]
     },
 
-    
+
 
 
   ],
@@ -301,7 +340,7 @@ const blogSection = {
       description:
         "I enjoy sharing my knowledge on Medium.com across a variety of fields to help and inspire others."
     },
-    
+
   ],
   display: true // Set false to hide this section, defaults to true
 };
