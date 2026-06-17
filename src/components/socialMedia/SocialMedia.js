@@ -123,7 +123,7 @@ export default function socialMedia() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fab fa-hashnode"></i>
+          <i className="fas fa-circle"></i>
           <span></span>
         </a>
       ) : null}
