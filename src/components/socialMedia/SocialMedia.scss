@@ -71,6 +71,10 @@ $hashnode: #2d3748;
   background-color: $instagram;
 }
 
+.hashnode i {
+  background-color: $hashnode;
+}
+
 /* Hover Transition */
 .twitter i:hover,
 .google i:hover,
@@ -81,7 +85,8 @@ $hashnode: #2d3748;
 .instagram i:hover,
 .stack-overflow i:hover,
 .kaggle i:hover,
-.medium i:hover {
+.medium i:hover,
+.hashnode i:hover {
   background-color: $textColor;
 }
 

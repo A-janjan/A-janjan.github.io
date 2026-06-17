@@ -246,17 +246,17 @@ const workExperiences = {
       ]
     },
     {
-      role: "Full-Stack Developer",
+      role: "Freelance AI & Backend Developer",
       company: "Freelance",
       companylogo: require("./assets/images/freelancer.png"),
-      date: "Jun 2022 – Oct 2022",
-      desc: "Designed and developed a full-stack e-commerce platform from development to deployment.",
+      date: "Jun 2022 – Present",
+      desc: "Providing freelance services in Python backend development and AI-powered software solutions.",
       descBullets: [
-        "Developed backend services and APIs using Django.",
-        "Designed responsive and user-friendly UI/UX for the e-commerce platform.",
-        "Implemented data management and persistence using PostgreSQL.",
-        "Deployed and maintained the application on a cloud-based PaaS environment.",
-        "Managed the complete software development lifecycle, from requirements gathering to deployment."
+        "Developed backend services, REST APIs, and web applications using Django and FastAPI.",
+        "Designed and implemented scalable database solutions using PostgreSQL.",
+        "Built AI-powered applications leveraging machine learning and large language models.",
+        "Developed custom software solutions for automation, data processing, and business workflows.",
+        "Managed the full project lifecycle, including requirements analysis, development, deployment, and maintenance."
       ]
     },
 
