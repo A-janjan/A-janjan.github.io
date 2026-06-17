@@ -39,7 +39,7 @@ const socialMediaLinks = {
   gmail: "a.m.x.janjan@gmail.com",
   // gitlab: "https://gitlab.com/a_janjan",
   twitter: "https://twitter.com/AMXJanjan",
-  hashnode: "https://a-janjan.hashnode.dev/",
+  // hashnode: "https://a-janjan.hashnode.dev/",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -326,23 +326,33 @@ const achievementSection = {
   display: true // Set false to hide this section, defaults to true
 };
 
+
+
 // Blogs Section
 
 const blogSection = {
   title: "Blogs",
   subtitle:
-    "I love to share my knowledge",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+    "Sharing insights on AI, LLM Agents, Multi-Agent Systems, Quantitative Finance, and Software Engineering.",
+
+  displayMediumBlogs: "true",
+
   blogs: [
     {
       url: "https://medium.com/@a.m.x.janjan/",
-      title: "MEDIUM.COM",
+      title: "Medium",
       description:
-        "I enjoy sharing my knowledge on Medium.com across a variety of fields to help and inspire others."
+        "Articles on artificial intelligence, machine learning, LLM agents, quantitative finance, and practical software engineering."
     },
-
+    {
+      url: "https://a-janjan.hashnode.dev/",
+      title: "Hashnode",
+      description:
+        "Technical deep dives, tutorials, project breakdowns, and research notes on AI systems, agentic workflows, and backend development."
+    }
   ],
-  display: true // Set false to hide this section, defaults to true
+
+  display: true
 };
 
 // Talks Sections

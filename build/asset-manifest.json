@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1cb6244f.css",
-    "main.js": "/static/js/main.f2a1ec6e.js",
+    "main.css": "/static/css/main.c4a905ad.css",
+    "main.js": "/static/js/main.318db1ca.js",
     "static/css/487.bb36206c.chunk.css": "/static/css/487.bb36206c.chunk.css",
     "static/js/487.f0137157.chunk.js": "/static/js/487.f0137157.chunk.js",
     "static/css/990.c6a7ee28.chunk.css": "/static/css/990.c6a7ee28.chunk.css",
@@ -21,15 +21,15 @@
     "static/media/saayaHealthLogo.webp": "/static/media/saayaHealthLogo.60b27d1f184fadfce43a.webp",
     "index.html": "/index.html",
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.1cb6244f.css.map": "/static/css/main.1cb6244f.css.map",
-    "main.f2a1ec6e.js.map": "/static/js/main.f2a1ec6e.js.map",
+    "main.c4a905ad.css.map": "/static/css/main.c4a905ad.css.map",
+    "main.318db1ca.js.map": "/static/js/main.318db1ca.js.map",
     "487.bb36206c.chunk.css.map": "/static/css/487.bb36206c.chunk.css.map",
     "487.f0137157.chunk.js.map": "/static/js/487.f0137157.chunk.js.map",
     "990.c6a7ee28.chunk.css.map": "/static/css/990.c6a7ee28.chunk.css.map",
     "990.e56491d2.chunk.js.map": "/static/js/990.e56491d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cb6244f.css",
-    "static/js/main.f2a1ec6e.js"
+    "static/css/main.c4a905ad.css",
+    "static/js/main.318db1ca.js"
   ]
 }
