@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.93690824.css",
-    "main.js": "/static/js/main.de6033ee.js",
+    "main.css": "/static/css/main.1cb6244f.css",
+    "main.js": "/static/js/main.6400f1e2.js",
     "static/css/487.bb36206c.chunk.css": "/static/css/487.bb36206c.chunk.css",
     "static/js/487.f0137157.chunk.js": "/static/js/487.f0137157.chunk.js",
     "static/css/990.c6a7ee28.chunk.css": "/static/css/990.c6a7ee28.chunk.css",
     "static/js/990.e56491d2.chunk.js": "/static/js/990.e56491d2.chunk.js",
+    "static/media/University_of_Tehran_logo.png": "/static/media/University_of_Tehran_logo.970ad1458935997445e6.png",
     "static/media/ut_logo.png": "/static/media/ut_logo.0344329b5c20a6490ec9.png",
     "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Sanjesh_logo.png": "/static/media/Sanjesh_logo.e746cb8c13fb938df323.png",
@@ -20,15 +21,15 @@
     "static/media/saayaHealthLogo.webp": "/static/media/saayaHealthLogo.60b27d1f184fadfce43a.webp",
     "index.html": "/index.html",
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.93690824.css.map": "/static/css/main.93690824.css.map",
-    "main.de6033ee.js.map": "/static/js/main.de6033ee.js.map",
+    "main.1cb6244f.css.map": "/static/css/main.1cb6244f.css.map",
+    "main.6400f1e2.js.map": "/static/js/main.6400f1e2.js.map",
     "487.bb36206c.chunk.css.map": "/static/css/487.bb36206c.chunk.css.map",
     "487.f0137157.chunk.js.map": "/static/js/487.f0137157.chunk.js.map",
     "990.c6a7ee28.chunk.css.map": "/static/css/990.c6a7ee28.chunk.css.map",
     "990.e56491d2.chunk.js.map": "/static/js/990.e56491d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93690824.css",
-    "static/js/main.de6033ee.js"
+    "static/css/main.1cb6244f.css",
+    "static/js/main.6400f1e2.js"
   ]
 }
