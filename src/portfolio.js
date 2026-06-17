@@ -348,7 +348,7 @@ const blogSection = {
       url: "https://a-janjan.hashnode.dev/",
       title: "Hashnode",
       description:
-        "Technical deep dives, tutorials, project breakdowns, and research notes on AI systems, agentic workflows, and backend development."
+        "Technical deep dives, tutorials, project breakdowns, and research notes on AI systems, agentic workflows, and backend development. "
     }
   ],
 
