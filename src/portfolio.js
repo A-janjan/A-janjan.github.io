@@ -23,7 +23,7 @@ const greeting = {
   username: "Amir M. Janjan",
   title: "Hi all, I'm Amir M. Janjan",
   subTitle: emoji(
-    "AI Engineer 🚀 specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance. Experienced in developing agentic AI applications, generative AI systems, and scalable backend solutions using modern AI frameworks."
+    "AI Engineer specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance. Experienced in developing agentic AI applications, generative AI systems, and scalable backend solutions using modern AI frameworks."
   ),
   resumeLink:
     "https://www.notion.so/2360f0296e1980d3b005fac449c49b87?v=2360f0296e19814ba60f000c43e9d543", // Set to empty to hide the button
