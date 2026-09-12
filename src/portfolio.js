@@ -20,7 +20,7 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Amir M. Janjan",
+  username: "A.M. Janjan",
   title: "Hi all, I'm Amir M. Janjan",
   subTitle: emoji(
     "AI Engineer specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance. Experienced in developing agentic AI applications, generative AI systems, and scalable backend solutions using modern AI frameworks."
@@ -349,6 +349,12 @@ const blogSection = {
       title: "Hashnode",
       description:
         "Technical deep dives, tutorials, project breakdowns, and research notes on AI systems, agentic workflows, and backend development. "
+    },
+    {
+      url: "https://virgool.io/@a.m.x.janjan",
+      title: "Virgool",
+      description:
+        "Persian-language articles and notes covering technology, artificial intelligence, software engineering, research, and general topics."
     }
   ],
 
