@@ -1,6 +1,6 @@
 {
-  "short_name": "A.M.JANJAN",
-  "name": "Janjan Portfolio",
+  "short_name": "A.M. Janjan",
+  "name": "Amir M. Janjan \u2014 AI Engineer",
   "icons": [
     {
       "src": "/favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#6c63ff",
-  "background_color": "#ffffff"
+  "theme_color": "#060a08",
+  "background_color": "#060a08"
 }

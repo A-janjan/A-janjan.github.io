@@ -1,47 +1,73 @@
 @import "../../_globalColor";
 
+.button-wrapper {
+  display: inline-flex;
+}
+
 .main-button {
-  background-color: $buttonColor;
-  border: solid 1px $buttonColor;
-  color: $textColorDark;
-  font-weight: 700;
-  width: max-content;
-  padding: 13px 22px;
-  margin-right: 50px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(74, 222, 128, 0.55);
+  background: rgba(74, 222, 128, 0.1);
+  color: $mx-green-bright;
+  font-family: $mx-mono;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  border-radius: 6px;
-  text-align: center;
   text-decoration: none;
-  display: block;
-  margin-top: 20px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out 0s;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.18s ease;
 }
+
+.main-button__arrow {
+  font-size: 0.85rem;
+  transition: transform 0.18s ease;
+}
+
 .main-button:hover {
-  background-color: $darkBoxShadow2;
-  color: $buttonColor;
-  transition: all 0.3s ease 0s;
-  transform: translateY(-3px);
+  background: $mx-green;
+  border-color: $mx-green;
+  color: #04120b;
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.25),
+    0 14px 30px -18px rgba(74, 222, 128, 0.9);
+  transform: translateY(-1px);
 }
+
+.main-button:hover .main-button__arrow {
+  transform: translateX(2px);
+}
+
+/* Secondary / outline variant */
+.main-button--ghost {
+  background: transparent;
+  border-color: $mx-line;
+  color: $mx-text;
+}
+
+.main-button--ghost:hover {
+  background: rgba(74, 222, 128, 0.08);
+  border-color: rgba(74, 222, 128, 0.55);
+  color: $mx-green-bright;
+  box-shadow: none;
+}
+
+/* Centered “more projects” wrapper */
 .project-button {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 36px;
 }
-.project-button > .main-button {
-  margin-right: 0 !important;
-}
-/* Media Query */
+
 @media (max-width: 768px) {
   .main-button {
-    font-size: 0.938rem;
-    padding: 12px 18px;
-    margin-right: 0px;
-  }
-}
-@media (max-width: 320px) {
-  .main-button {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    padding: 10px 15px;
   }
 }

@@ -1,36 +1,40 @@
 import React from "react";
+import {Fade} from "react-reveal";
 import "./BlogCard.scss";
 
-export default function BlogCard({blog, isDark}) {
-  function openUrlInNewTab(url, name) {
-    if (!url) {
-      console.log(`URL for ${name} not found`);
-      return;
-    }
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
+function slugify(text) {
+  return String(text || "blog")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
 
+export default function BlogCard({blog, index = 0}) {
   return (
-    <div onClick={() => openUrlInNewTab(blog.url, blog.title)}>
-      <div className={isDark ? "blog-container dark-mode" : "blog-container"}>
-        <a
-          className={
-            isDark ? "dark-mode blog-card blog-card-shadow" : "blog-card"
-          }
-          href="#blog"
-        >
-          <h3 className={isDark ? "small-dark blog-title" : "blog-title"}>
-            {blog.title}
-          </h3>
-          <p className={isDark ? "small-dark small" : "small"}>
-            {blog.description}
-          </p>
-          <div className="go-corner">
-            <div className="go-arrow">→</div>
-          </div>
-        </a>
-      </div>
-    </div>
+    <Fade bottom duration={650} distance="14px">
+      <a
+        className="post-card mx-panel"
+        href={blog.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="post-card__head">
+          <span className="post-card__path">
+            ~/writing/{slugify(blog.title)}
+          </span>
+          <span className="post-card__arrow" aria-hidden="true">
+            ↗
+          </span>
+        </div>
+        <h3 className="post-card__title">{blog.title}</h3>
+        <p className="post-card__desc">{blog.description}</p>
+        <div className="post-card__foot">
+          <span>read archive</span>
+          <span className="post-card__idx">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+      </a>
+    </Fade>
   );
 }

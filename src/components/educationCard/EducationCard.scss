@@ -1,134 +1,172 @@
 @import "../../_globalColor";
 
-.education-card {
+.edu-item {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.edu-item__rail {
+  position: relative;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
-.education-card:hover + .education-card-border {
-  border-color: $educationCardBorder;
-  width: 100%;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+.edu-item__rail::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: -22px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(74, 222, 128, 0.45),
+    rgba(74, 222, 128, 0.08)
+  );
 }
 
-.education-card-border {
-  height: 30px;
-  width: 80%;
-  border-top: 2px solid $lightBorder1;
-  margin-bottom: 20px;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+.edu-item:last-child .edu-item__rail::before {
+  bottom: 40%;
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.45), transparent);
 }
 
-.education-head {
-  display: flex;
-  flex-direction: row;
-}
-
-.education-text-school {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 27px;
-}
-
-.education-roundedimg {
-  object-fit: cover;
-  margin-right: 2rem;
-  width: 6rem;
-  height: 6rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
+.edu-item__dot {
+  position: relative;
+  margin-top: 24px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  background: $mx-bg;
+  border: 1px solid $mx-green;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.08),
+    0 0 12px rgba(74, 222, 128, 0.35);
 }
 
-.education-card-right {
-  max-width: 70%;
+.edu-card {
+  padding: 24px clamp(18px, 3vw, 28px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.education-text-subHeader {
-  color: $textColor;
+.edu-card:hover {
+  border-color: rgba(74, 222, 128, 0.32);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.06),
+    0 30px 60px -50px rgba(0, 0, 0, 0.9);
+}
+
+.edu-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.edu-card__logo {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 7px;
+  border-radius: 6px;
+  background: #f2f7f4;
+  border: 1px solid rgba(163, 224, 194, 0.25);
+}
+
+.edu-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(0.95);
+  opacity: 0.9;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.edu-card:hover .edu-card__logo img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.edu-card__ident {
+  flex: 1;
+  min-width: 200px;
+}
+
+.edu-card__school {
+  margin: 0;
+  font-family: $mx-sans;
+  font-size: 1.02rem;
   font-weight: 700;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.8rem;
-  line-height: normal;
+  line-height: 1.4;
+  color: $mx-ink;
 }
 
-.education-text-duration {
-  color: $titleColor;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.5rem;
+.edu-card__degree {
+  margin: 4px 0 0;
+  font-family: $mx-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: $mx-green;
 }
 
-.education-text-desc {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+.edu-card__date {
+  flex: none;
+  padding: 4px 9px;
+  border: 1px solid $mx-line;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.02);
+  font-family: $mx-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: $mx-muted;
+  white-space: nowrap;
 }
 
-.education-text-bullets > ul {
-  margin-top: 0.5rem;
+.edu-card__desc {
+  margin: 16px 0 0;
+  font-size: 0.92rem;
+  color: $mx-muted;
 }
 
-/* Media Query */
+.edu-card__bullets {
+  margin-top: 12px;
+}
 
-@media (max-width: 1380px) {
-  .education-card {
-    flex-direction: column;
-    padding-bottom: 10px;
-  }
-  .education-card-right {
-    max-width: 90%;
-  }
-  .education-card-border {
-    width: 90%;
-  }
-  .education-text-subHeader {
-    padding-top: 0.5rem;
-    font-size: 16px;
-  }
-  .education-text-school {
-    font-size: 20px;
-    height: 23px;
-  }
-  .education-text-duration {
-    font-size: 16px;
-  }
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
-  }
+.edu-card__bullets li {
+  font-size: 0.92rem;
+}
+
+.edu-card__index {
+  display: block;
+  margin-top: 16px;
+  font-family: $mx-mono;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: rgba(139, 161, 152, 0.45);
 }
 
 @media (max-width: 768px) {
-  .education-card {
-    text-align: center;
+  .edu-item {
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 10px;
   }
-  .education-card-right {
-    max-width: 100%;
+  .edu-card {
+    padding: 18px 16px;
   }
-  .education-card-border {
-    width: 100%;
+  .edu-card__logo {
+    width: 42px;
+    height: 42px;
   }
-  .education-roundedimg {
-    margin-top: 10px;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
+  .edu-card__school {
+    font-size: 0.94rem;
   }
-  .education-text-bullets > ul {
-    max-width: 80%;
-    margin: auto;
+  .edu-card__ident {
+    min-width: 150px;
+  }
+  .edu-card__date {
+    order: 3;
+  }
+  .edu-card__bullets li {
+    font-size: 0.88rem;
   }
 }

@@ -1,48 +1,59 @@
 import React from "react";
 import "./AchievementCard.scss";
 
-export default function AchievementCard({cardInfo, isDark}) {
+export default function AchievementCard({cardInfo, index = 0}) {
   function openUrlInNewTab(url, name) {
-    if (!url) {
-      console.log(`URL for ${name} not found`);
+    if (!url || url === "#") {
       return;
     }
-    var win = window.open(url, "_blank");
-    win.focus();
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
+  const footer = cardInfo.footer || [];
+
   return (
-    <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
-      <div className="certificate-image-div">
+    <article className="award-card mx-panel">
+      <div className="award-card__media">
         <img
           src={cardInfo.image}
-          alt={cardInfo.imageAlt || "Card Thumbnail"}
-          className="card-image"
-        ></img>
+          alt={cardInfo.imageAlt || "Certificate"}
+          loading="lazy"
+        />
       </div>
-      <div className="certificate-detail-div">
-        <h5 className={isDark ? "dark-mode card-title" : "card-title"}>
-          {cardInfo.title}
-        </h5>
-        <p className={isDark ? "dark-mode card-subtitle" : "card-subtitle"}>
-          {cardInfo.description}
-        </p>
+
+      <div className="award-card__body">
+        <div className="award-card__meta">
+          <span className="award-card__date">{cardInfo.description}</span>
+          <span className="award-card__id">
+            CERT_{String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+        <h3 className="award-card__title">{cardInfo.title}</h3>
+        {footer.length > 0 && (
+          <div className="award-card__tags">
+            {footer.map((tag, i) => {
+              const isLink = tag.url && tag.url !== "#";
+              return (
+                <span
+                  key={i}
+                  className={`award-card__tag${isLink ? " is-link" : ""}`}
+                  onClick={() => isLink && openUrlInNewTab(tag.url, tag.name)}
+                  role={isLink ? "link" : undefined}
+                  tabIndex={isLink ? 0 : undefined}
+                  onKeyDown={e => {
+                    if (isLink && (e.key === "Enter" || e.key === " ")) {
+                      openUrlInNewTab(tag.url, tag.name);
+                    }
+                  }}
+                >
+                  {tag.name}
+                </span>
+              );
+            })}
+            <span className="award-card__verified">verified</span>
+          </div>
+        )}
       </div>
-      <div className="certificate-card-footer">
-        {cardInfo.footer.map((v, i) => {
-          return (
-            <span
-              key={i}
-              className={
-                isDark ? "dark-mode certificate-tag" : "certificate-tag"
-              }
-              onClick={() => openUrlInNewTab(v.url, v.name)}
-            >
-              {v.name}
-            </span>
-          );
-        })}
-      </div>
-    </div>
+    </article>
   );
 }

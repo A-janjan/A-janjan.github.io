@@ -1,77 +1,145 @@
 @import "../../_globalColor";
 
-.card-image {
-  max-width: 100%;
-  height: auto;
-  width: 250px;
+.award-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px clamp(18px, 2.4vw, 26px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.card-title {
-  color: $titleColor;
-  font-size: 1.375rem;
-  line-height: 24px;
+
+.award-card:hover {
+  border-color: rgba(74, 222, 128, 0.34);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.06);
+}
+
+.award-card__media {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  padding: 9px;
+  border-radius: 50%;
+  background: #f2f7f4;
+  border: 1px solid rgba(163, 224, 194, 0.3);
+}
+
+.award-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: grayscale(1) contrast(0.95);
+  transition: filter 0.25s ease;
+}
+
+.award-card:hover .award-card__media img {
+  filter: grayscale(0);
+}
+
+.award-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.award-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.award-card__date {
+  font-family: $mx-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $mx-green;
+}
+
+.award-card__id {
+  font-family: $mx-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(139, 161, 152, 0.4);
+}
+
+.award-card__title {
+  margin: 0;
+  font-family: $mx-sans;
+  font-size: 1rem;
   font-weight: 700;
-  margin: 15px 0 0 0;
-}
-.card-subtitle {
-  color: $cardSubtitle;
-  font-size: 1.063rem;
-  line-height: 1.5rem;
-}
-.certificate-card {
-  background-color: $lightBackground2;
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.certificate-detail-div {
-  text-align: center;
-}
-.certificate-card:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
-}
-.dark-mode.certificate-card:hover {
-  box-shadow: $achievementCertificateCardHoverDark 0px 20px 30px -10px;
-}
-.certificate-image-div {
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.achievement-cards-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
-}
-.certificate-card-footer {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.certificate-card-footer span.certificate-tag {
-  background: $buttonColor;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 4px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
-  justify-content: center;
-  white-space: nowrap;
   line-height: 1.5;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0 0.75em;
-  cursor: pointer;
-  transition: 0.2s ease-in;
+  color: $mx-ink;
 }
-span.certificate-tag:hover {
-  background: $buttonHover;
+
+.award-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.award-card__tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid $mx-line;
+  border-radius: 3px;
+  font-family: $mx-mono;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $mx-muted;
+}
+
+.award-card__tag.is-link {
+  cursor: pointer;
+  color: $mx-green-bright;
+  border-color: rgba(74, 222, 128, 0.32);
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.award-card__tag.is-link:hover {
+  background: rgba(74, 222, 128, 0.12);
+  color: $mx-ink;
+}
+
+.award-card__verified {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $mx-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $mx-dim;
+}
+
+.award-card__verified::before {
+  content: "✓";
+  color: $mx-green;
+}
+
+@media (max-width: 768px) {
+  .award-card {
+    gap: 14px;
+    padding: 18px 16px;
+  }
+  .award-card__media {
+    width: 56px;
+    height: 56px;
+    padding: 7px;
+  }
+  .award-card__title {
+    font-size: 0.92rem;
+  }
+  .award-card__verified {
+    display: none;
+  }
 }

@@ -1,74 +1,79 @@
-import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
+import React, {useState, useEffect} from "react";
 import "./Project.scss";
 import Button from "../../components/button/Button";
-import {openSource, socialMediaLinks} from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
-import Loading from "../../containers/loading/Loading";
+import SectionHeading from "../../components/sectionHeading/SectionHeading";
+import ProjectCard from "../../components/projectCard/ProjectCard";
+import {openSource, selectedProjects, socialMediaLinks} from "../../portfolio";
+
 export default function Projects() {
-  const GithubRepoCard = lazy(() =>
-    import("../../components/githubRepoCard/GithubRepoCard")
-  );
-  const FailedLoading = () => null;
-  const renderLoader = () => <Loading />;
-  const [repo, setrepo] = useState([]);
-  // todo: remove useContex because is not supported
-  const {isDark} = useContext(StyleContext);
+  const [repo, setRepo] = useState(null);
 
   useEffect(() => {
-    const getRepoData = () => {
-      fetch("/profile.json")
-        .then(result => {
-          if (result.ok) {
-            return result.json();
-          }
-          throw result;
-        })
-        .then(response => {
-          setrepoFunction(response.data.user.pinnedItems.edges);
-        })
-        .catch(function (error) {
-          console.error(
-            `${error} (because of this error, nothing is shown in place of Projects section. Also check if Projects section has been configured)`
-          );
-          setrepoFunction("Error");
-        });
+    let active = true;
+    fetch("/profile.json")
+      .then(result => {
+        if (result.ok) {
+          return result.json();
+        }
+        throw result;
+      })
+      .then(response => {
+        const edges = response?.data?.user?.pinnedItems?.edges;
+        if (active && Array.isArray(edges) && edges.length > 0) {
+          setRepo(edges);
+        }
+      })
+      .catch(() => {
+        /* No pinned GitHub data at build time — the curated list below is shown. */
+      });
+    return () => {
+      active = false;
     };
-    getRepoData();
   }, []);
 
-  function setrepoFunction(array) {
-    setrepo(array);
+  if (!openSource.display) {
+    return null;
   }
-  if (
-    !(typeof repo === "string" || repo instanceof String) &&
-    openSource.display
-  ) {
-    return (
-      <Suspense fallback={renderLoader()}>
-        <div className="main" id="opensource">
-          <h1 className="project-title">Open Source Projects</h1>
-          <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
-              if (!v) {
-                console.error(
-                  `Github Object for repository number : ${i} is undefined`
-                );
-              }
-              return (
-                <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
-              );
-            })}
-          </div>
-          <Button
-            text={"More Projects"}
-            className="project-button"
-            href={socialMediaLinks.github}
-            newTab={true}
+
+  // Pinned repositories are matched against the curated list by name so the
+  // copy stays hand-written: pinned data only contributes live stats.
+  const pinnedByName = {};
+  if (Array.isArray(repo)) {
+    repo.forEach(item => {
+      if (item && item.node && item.node.name) {
+        pinnedByName[item.node.name.toLowerCase()] = item.node;
+      }
+    });
+  }
+
+  return (
+    <section className="main projects-section" id="opensource">
+      <SectionHeading
+        index="05"
+        kicker="Projects"
+        title={selectedProjects.title}
+        lead={selectedProjects.subtitle}
+      />
+
+      <div className="repo-cards-div-main">
+        {selectedProjects.projects.map((project, i) => (
+          <ProjectCard
+            key={project.name}
+            project={project}
+            index={i}
+            stats={pinnedByName[project.name.toLowerCase()]}
           />
-        </div>
-      </Suspense>
-    );
-  } else {
-    return <FailedLoading />;
-  }
+        ))}
+      </div>
+
+      <div className="project-button">
+        <Button
+          text="More on GitHub"
+          href={socialMediaLinks.github}
+          newTab={true}
+          variant="ghost"
+        />
+      </div>
+    </section>
+  );
 }

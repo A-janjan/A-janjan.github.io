@@ -1,3 +1,14 @@
+/* ------------------------------------------------------------------
+   Fonts
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  src: url("./assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
@@ -6,31 +17,133 @@
     url("./assets/fonts/Agustina.woff") format("woff");
   font-display: swap;
 }
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+    url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-display: swap;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+:root {
+  --mx-bg: #060a08;
+  --mx-green: #4ade80;
+  --mx-green-bright: #9bf7c0;
+  --mx-ink: #e8f4ee;
+  --mx-text: #b9c9c1;
+  --mx-muted: #8ba198;
+  --mx-line: rgba(163, 224, 194, 0.14);
+  --mx-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas,
+    "Liberation Mono", monospace;
+  --mx-sans: "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  -webkit-text-size-adjust: 100%;
+}
+
 html,
 body {
-  scroll-behavior: smooth;
-}
-body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  padding: 0;
+}
+
+body {
+  background-color: var(--mx-bg);
+  color: var(--mx-text);
+  font-family: var(--mx-sans);
+  font-size: 16px;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-/* Media Query */
-@media (max-width: 1380px) {
-  html,
-  body {
-    font-size: rem;
-    line-height: normal;
+
+/*
+ * Base page colours. The ambient glows live in App.scss (.page-bg) and the
+ * hero rain is a canvas, so the body itself stays flat and cheap to paint.
+ */
+body {
+  background-color: var(--mx-bg);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--mx-mono);
+}
+
+a {
+  color: var(--mx-green);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(74, 222, 128, 0.28);
+  color: #f4fff8;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(74, 222, 128, 0.65);
+  outline-offset: 3px;
+}
+
+/* Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(74, 222, 128, 0.35) #08110d;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07100c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 222, 128, 0.28);
+  border-radius: 8px;
+  border: 2px solid #07100c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 222, 128, 0.5);
+}
+
+/* Reduced motion: keep the layout, lose the theatrics */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

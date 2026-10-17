@@ -1,23 +1,107 @@
 .splash-container {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  gap: 28px;
+  background: #050906;
+  background-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      rgba(74, 222, 128, 0.08),
+      transparent 70%
+    ),
+    linear-gradient(rgba(74, 222, 128, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 222, 128, 0.04) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
 }
 
-.splash-animation-container {
-  height: 50vh;
+.splash-boot {
+  width: min(420px, 86vw);
+  padding: 20px 22px;
+  border: 1px solid rgba(163, 224, 194, 0.14);
+  border-radius: 6px;
+  background: rgba(8, 16, 12, 0.85);
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 2;
+  color: #b9c9c1;
+  box-shadow: 0 0 60px -30px rgba(74, 222, 128, 0.5);
+}
+
+.splash-boot__line {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(3px);
+  animation: splash-line 320ms ease-out forwards;
+}
+
+.splash-boot__tag {
+  color: #4ade80;
+  margin-right: 4px;
+}
+
+.splash-boot__line--ready {
+  color: #e8f4ee;
+}
+
+.splash-boot__caret {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  margin-left: 6px;
+  background: #4ade80;
+  vertical-align: middle;
+  animation: splash-blink 1s steps(1) infinite;
 }
 
 .splash-title-container {
-  font-size: 2.5rem;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: #e8f4ee;
+  opacity: 0;
+  animation: splash-line 360ms ease-out 660ms forwards;
 }
+
+.splash-bracket {
+  color: #4ade80;
+}
+
 .splash-title {
-  font-family: "Agustina Regular", cursive;
-  font-weight: bold;
-  font-variant-ligatures: no-common-ligatures;
-  -webkit-font-variant-ligatures: no-common-ligatures;
-  padding: 0 20px;
+  padding: 0 8px;
+}
+
+@keyframes splash-line {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-boot__line,
+  .splash-title-container {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .splash-boot__caret {
+    animation: none;
+  }
 }

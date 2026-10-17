@@ -1,90 +1,100 @@
 @import "../../_globalColor";
 
-.card-image {
+/* Optional “big projects / startups” section.
+   Everything is scoped under .startup-projects so it cannot leak into the
+   resume-style cards used elsewhere. */
+
+.startup-projects .card-image {
   max-width: 100%;
   height: auto;
   width: 250px;
 }
-.card-title {
-  color: $titleColor;
-  font-size: 22px;
-  line-height: 24px;
+
+.startup-projects .card-title {
+  color: $mx-ink;
+  font-size: 20px;
+  line-height: 1.3;
   font-weight: 700;
-  margin: 15px 0 0 0;
+  margin: 15px 0 0;
 }
-.card-subtitle {
-  color: $cardSubtitle;
-  font-size: 17px;
-  line-height: 1.5rem;
+
+.startup-projects .card-subtitle {
+  color: $mx-muted;
+  font-size: 15px;
+  line-height: 1.6;
 }
-.project-card {
+
+.startup-projects .project-subtitle {
+  color: $mx-muted;
+}
+
+.startup-projects .projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.startup-projects .project-card {
   display: flex;
   flex-direction: column;
-  background-color: $lightBackground2;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid $lightBorder1;
   justify-content: center;
-}
-.project-card-light {
-  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  padding: 22px;
+  border-radius: 6px;
+  border: 1px solid $mx-line;
+  background: $mx-panel;
 }
 
-.project-card-dark {
-  box-shadow: 0px 10px 30px -15px $darkBoxShadow;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.25s ease;
+.startup-projects .project-card-light,
+.startup-projects .project-card-dark {
+  box-shadow: 0 20px 50px -45px rgba(0, 0, 0, 0.95);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.project-detail {
-  text-align: center;
+.startup-projects .project-card-light:hover,
+.startup-projects .project-card-dark:hover {
+  border-color: rgba(74, 222, 128, 0.35);
+  transform: translateY(-2px);
 }
-.project-card-light:hover {
-  box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
+
+.startup-projects .project-detail {
+  text-align: left;
 }
-.project-card-dark:hover {
-  box-shadow: 0px 20px 30px -10px $darkBoxShadow;
-}
-.project-image {
+
+.startup-projects .project-image {
   position: relative;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem 1rem;
+.startup-projects .project-card-footer span.project-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0 0.7em;
+  height: 2em;
+  border-radius: 3px;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.08);
+  color: $mx-green-bright;
+  font-family: $mx-mono;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.16s ease;
 }
 
-.project-card-footer span.project-tag {
-  background: $buttonColor;
-  color: $lightBackground3;
-  vertical-align: middle;
-  align-items: center;
-  border-radius: 4px;
-  display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
-  justify-content: center;
-  white-space: nowrap;
-  line-height: 1.5;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0 0.75em;
-  cursor: pointer;
-  transition: 0.2s ease-in;
+.startup-projects .project-card-footer span.project-tag:hover {
+  background: rgba(74, 222, 128, 0.18);
 }
 
 @media (max-width: 768px) {
-  .project-subtitle {
-    font-size: 16px;
-    text-align: center;
+  .startup-projects .project-subtitle {
+    font-size: 15px;
   }
 }

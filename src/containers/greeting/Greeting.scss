@@ -1,119 +1,365 @@
 @import "../../_globalColor";
 
-.main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 4rem;
-}
-.greet-main {
-  width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
-  margin-top: 2rem;
-}
-
-.greeting-main {
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 122px 0 96px;
+  border-bottom: 1px solid $mx-line;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 86vh;
 }
 
-.subTitle {
-  color: $subTitle !important;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 8, 0.15) 0%,
+    rgba(6, 10, 8, 0.32) 55%,
+    rgba(6, 10, 8, 0.92) 100%
+  );
+  z-index: 0;
 }
 
-.greeting-main {
-  display: flex;
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
 }
 
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-.button-greeting-div {
-  display: flex;
-  margin-top: 20px;
+.hero__inner > div {
+  min-width: 0;
 }
 
-.greeting-text {
-  font-size: 70px;
-  line-height: 1.1;
-  color: $textColor !important;
+/* Status line ------------------------------------------------------------ */
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 22px;
+  padding: 5px 12px;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.06);
+  font-family: $mx-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $mx-green-bright;
 }
 
-.greeting-text-p {
-  font-size: 30px;
-  line-height: 40px;
+.hero__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $mx-green;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.14);
+  animation: hero-pulse 2.2s ease-in-out infinite;
 }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
-}
-
-.wave-emoji {
-  animation-duration: 1.8s;
-  animation-iteration-count: infinite;
-  animation-name: wave;
-  display: inline-block;
-  transform-origin: 70% 70%;
-}
-
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(-10deg);
-  }
-  20% {
-    transform: rotate(12deg);
-  }
-  30% {
-    transform: rotate(-10deg);
-  }
-  40% {
-    transform: rotate(9deg);
+@keyframes hero-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.14);
+    opacity: 1;
   }
   50% {
-    transform: rotate(0deg);
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.04);
+    opacity: 0.75;
+  }
+}
+
+/* Name ------------------------------------------------------------------- */
+.hero__title {
+  margin: 0;
+  font-family: $mx-mono;
+  font-size: clamp(2.55rem, 6vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: $mx-ink;
+}
+
+.hero__name.mx-text--done {
+  animation: hero-name-charge 900ms ease-out 1;
+}
+
+@keyframes hero-name-charge {
+  0% {
+    filter: brightness(1.35);
   }
   100% {
-    transform: rotate(0deg);
+    filter: brightness(1);
   }
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .greeting-text {
-    font-size: 50px;
+.hero__name--accent .mx-char--locked {
+  color: $mx-green;
+  text-shadow: 0 0 34px rgba(74, 222, 128, 0.35);
+}
+
+.hero__title .mx-text + .mx-text {
+  margin-left: 0.26em;
+}
+
+/* Role ------------------------------------------------------------------- */
+.hero__role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-family: $mx-mono;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+  color: $mx-text;
+}
+
+.hero__role-prompt {
+  color: $mx-green;
+  font-weight: 700;
+}
+
+.hero__role-text {
+  color: $mx-green-bright;
+}
+
+.hero__role-text .mx-char--locked {
+  color: $mx-green-bright;
+}
+
+/* Startup choreography ---------------------------------------------------- */
+.hero-in {
+  opacity: 0;
+  animation: hero-rise 620ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--in-delay, 0ms);
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  .greeting-text-p {
-    font-size: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+/* Rain is denser/bright for the first ~2s, then settles to the calm state. */
+.hero .matrix-rain {
+  transition: opacity 2.4s ease-out;
+}
+
+.hero--booting .matrix-rain {
+  opacity: 0.85;
+}
+
+/* A single scan sweep across the hero when the page opens. */
+.hero__sweep {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20%;
+  width: 34%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.07) 45%,
+    rgba(155, 247, 192, 0.16) 50%,
+    rgba(74, 222, 128, 0.07) 55%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  transform: translateX(-30%);
+  opacity: 0;
+  animation: hero-sweep 1900ms cubic-bezier(0.4, 0, 0.2, 1) 120ms 1 both;
+}
+
+@keyframes hero-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  12% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(430%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__sweep {
+    display: none;
+  }
+  .hero-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* Copy ------------------------------------------------------------------- */
+.hero__summary {
+  max-width: 56ch;
+  margin: 20px 0 0;
+  color: $mx-text;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.hero__focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+/* Actions ---------------------------------------------------------------- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.hero__actions .social-media-div {
+  margin: 0;
+  margin-left: 4px;
+}
+
+/* Credentials ------------------------------------------------------------ */
+.hero__meta {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px dashed rgba(163, 224, 194, 0.16);
+  display: grid;
+  gap: 6px;
+  font-family: $mx-mono;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  color: $mx-dim;
+}
+
+.hero__meta-mark {
+  color: rgba(74, 222, 128, 0.75);
+  margin-right: 8px;
+}
+
+/* Terminal column -------------------------------------------------------- */
+.hero__terminal {
+  position: relative;
+}
+
+.hero__terminal-note {
+  margin: 16px 4px 0;
+  text-align: right;
+  font-family: $mx-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: $mx-dim;
+}
+
+.hero__terminal-note span {
+  color: rgba(74, 222, 128, 0.65);
+}
+
+/* Scroll hint ------------------------------------------------------------ */
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $mx-mono;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: $mx-dim;
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.hero__scroll span {
+  color: $mx-green;
+}
+
+.hero__scroll:hover {
+  color: $mx-green-bright;
+}
+
+/* Responsive ------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .hero {
+    padding-top: 110px;
+    min-height: auto;
+  }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .hero__terminal {
+    max-width: 560px;
+  }
+  .hero__terminal-note {
+    text-align: left;
+  }
+  .hero {
+    padding-bottom: 84px;
+  }
+}
+
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
+  .hero {
+    padding: 100px 0 72px;
+    min-height: auto;
   }
-  .greeting-text {
-    font-size: 30px;
-    text-align: center;
+  .hero__inner {
+    width: 90%;
   }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
+  .hero__status {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
   }
-  .greeting-main {
-    display: block;
+  .hero__title {
+    font-size: clamp(2.2rem, 11vw, 3rem);
   }
-  .greeting-image-div {
-    height: 256px;
+  .hero__role {
+    font-size: 0.88rem;
   }
-}
-
-@media (max-width: 320px) {
-  .main {
-    width: auto;
+  .hero__summary {
+    font-size: 0.95rem;
+  }
+  .hero__meta {
+    font-size: 0.68rem;
+  }
+  .hero__scroll {
+    display: none;
+  }
+  .hero__actions {
+    gap: 10px;
   }
 }

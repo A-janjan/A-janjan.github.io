@@ -1,98 +1,67 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import "./Blog.scss";
+import SectionHeading from "../../components/sectionHeading/SectionHeading";
 import BlogCard from "../../components/blogCard/BlogCard";
 import {blogSection} from "../../portfolio";
 import {Fade} from "react-reveal";
-import StyleContext from "../../contexts/StyleContext";
+
 export default function Blogs() {
-  const {isDark} = useContext(StyleContext);
-  const [mediumBlogs, setMediumBlogs] = useState([]);
-  function setMediumBlogsFunction(array) {
-    setMediumBlogs(array);
-  }
-  //Medium API returns blogs' content in HTML format. Below function extracts blogs' text content within paragraph tags
-  function extractTextContent(html) {
-    return typeof html === "string"
-      ? html
-          .split("p>")
-          .filter(el => !el.includes(">"))
-          .map(el => el.replace("</", ".").replace("<", ""))
-          .join(" ")
-      : NaN;
-  }
+  const [mediumBlogs, setMediumBlogs] = useState(null);
+
   useEffect(() => {
-    if (blogSection.displayMediumBlogs === "true") {
-      const getProfileData = () => {
-        fetch("/blogs.json")
-          .then(result => {
-            if (result.ok) {
-              return result.json();
-            }
-          })
-          .then(response => {
-            setMediumBlogsFunction(response.items);
-          })
-          .catch(function (error) {
-            console.error(
-              `${error} (because of this error Blogs section could not be displayed. Blogs section has reverted to default)`
-            );
-            setMediumBlogsFunction("Error");
-            blogSection.displayMediumBlogs = "false";
-          });
-      };
-      getProfileData();
+    if (blogSection.displayMediumBlogs !== "true") {
+      return;
     }
+    let active = true;
+    fetch("/blogs.json")
+      .then(result => (result.ok ? result.json() : Promise.reject(result)))
+      .then(response => {
+        if (active && response && Array.isArray(response.items)) {
+          setMediumBlogs(response.items);
+        }
+      })
+      .catch(() => {
+        /* No Medium feed available — the curated list is used instead. */
+      });
+    return () => {
+      active = false;
+    };
   }, []);
+
   if (!blogSection.display) {
     return null;
   }
+
+  const useMedium =
+    blogSection.displayMediumBlogs === "true" && Array.isArray(mediumBlogs);
+
+  const posts = useMedium
+    ? mediumBlogs.map(blog => ({
+        url: blog.link,
+        title: blog.title,
+        description:
+          typeof blog.content === "string"
+            ? blog.content.replace(/<[^>]+>/g, " ").slice(0, 180) + "…"
+            : blog.subtitle || ""
+      }))
+    : blogSection.blogs;
+
   return (
-    <Fade bottom duration={1000} distance="20px">
-      <div className="main" id="blogs">
-        <div className="blog-header">
-          <h1 className="blog-header-text">{blogSection.title}</h1>
-          <p
-            className={
-              isDark ? "dark-mode blog-subtitle" : "subTitle blog-subtitle"
-            }
-          >
-            {blogSection.subtitle}
-          </p>
-        </div>
-        <div className="blog-main-div">
-          <div className="blog-text-div">
-            {blogSection.displayMediumBlogs !== "true" ||
-            mediumBlogs === "Error"
-              ? blogSection.blogs.map((blog, i) => {
-                  return (
-                    <BlogCard
-                      key={i}
-                      isDark={isDark}
-                      blog={{
-                        url: blog.url,
-                        image: blog.image,
-                        title: blog.title,
-                        description: blog.description
-                      }}
-                    />
-                  );
-                })
-              : mediumBlogs.map((blog, i) => {
-                  return (
-                    <BlogCard
-                      key={i}
-                      isDark={isDark}
-                      blog={{
-                        url: blog.link,
-                        title: blog.title,
-                        description: extractTextContent(blog.content)
-                      }}
-                    />
-                  );
-                })}
-          </div>
-        </div>
+    <section className="main blogs-section" id="blogs">
+      <Fade bottom duration={800} distance="16px">
+        <SectionHeading
+          index="07"
+          kicker="Writing"
+          title="Writing"
+          lead={blogSection.subtitle}
+        />
+      </Fade>
+
+      <div className="blog-cards-div">
+        {posts.map((blog, i) => (
+          <BlogCard key={i} blog={blog} index={i} />
+        ))}
       </div>
-    </Fade>
+    </section>
   );
 }

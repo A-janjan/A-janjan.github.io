@@ -10,7 +10,7 @@ import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your
 const splashScreen = {
   enabled: true, // set false to disable splash screen
   animation: splashAnimation,
-  duration: 2000 // Set animation duration as per your animation
+  duration: 1050 // Set animation duration as per your animation
 };
 
 // Summary And Greeting Section
@@ -21,10 +21,17 @@ const illustration = {
 
 const greeting = {
   username: "A.M. Janjan",
-  title: "Hi all, I'm Amir M. Janjan",
-  subTitle: emoji(
-    "AI Engineer specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance. Experienced in developing agentic AI applications, generative AI systems, and scalable backend solutions using modern AI frameworks."
-  ),
+  firstName: "Amir M.",
+  lastName: "Janjan",
+  title: "AI Engineer",
+  focus: ["LLM Agents", "Multi-Agent Systems", "Quantitative Finance"],
+  status: "Open to research & engineering roles",
+  subTitle:
+    "I design and ship agentic AI systems — LLM agents with planning, memory and tool use — and apply them to quantitative finance, research and production backends.",
+  credentials: [
+    "M.Sc. Artificial Intelligence & Robotics — University of Tehran",
+    "B.Sc. Electrical & Control Engineering — IUST"
+  ],
   resumeLink:
     "https://www.notion.so/2360f0296e1980d3b005fac449c49b87?v=2360f0296e19814ba60f000c43e9d543", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -51,11 +58,11 @@ const skillsSection = {
   subTitle: "AI Engineer specializing in LLM Agents, Multi-Agent Systems, and Quantitative Finance",
 
   skills: [
-    emoji("⚡ Designing and developing LLM-powered agents and multi-agent AI systems"),
-    emoji("⚡ Building agentic workflows with planning, reasoning, memory, and tool-use capabilities"),
-    emoji("⚡ Developing AI solutions for quantitative finance, financial analysis, and algorithmic trading"),
-    emoji("⚡ Creating production-ready AI applications using Python, LangChain, FastAPI, and modern LLM frameworks"),
-    emoji("⚡ Deploying and optimizing machine learning and generative AI systems with Docker and cloud technologies")
+    "Design and build LLM-powered agents and multi-agent AI systems.",
+    "Architect agentic workflows with planning, reasoning, memory and tool use.",
+    "Apply AI to quantitative finance, financial analysis and algorithmic trading.",
+    "Ship production systems with Python, LangChain, FastAPI and modern LLM frameworks.",
+    "Deploy and optimise ML and generative AI workloads with Docker and cloud tooling."
   ],
 
   /* Font Awesome Classnames for display icons */
@@ -150,7 +157,7 @@ const educationInfo = {
       schoolName: "Iran University of Science and Technology",
       logo: require("./assets/images/Logo-IUST.png"),
       subHeader: "Bachelor of Science in Electrical and Control Engineering",
-      duration: " 2019 -> 2024 ",
+      duration: "2019 — 2024",
       desc: "Courses and Achievements:",
       descBullets: [
         "Ranked top 10% in the program.",
@@ -163,10 +170,10 @@ const educationInfo = {
       ]
     },
     {
-      schoolName: "National Organization for Development of Exceptional Talents(Sampad)",
+      schoolName: "National Organization for Development of Exceptional Talents (Sampad)",
       logo: require("./assets/images/Sampad.png"),
       subHeader: "Diploma of Mathematical and technical sciences",
-      duration: "2013 -> 2019",
+      duration: "2013 — 2019",
       desc: "Courses and Achievements:",
       descBullets: [
         "Rank 1st Among school students.",
@@ -184,15 +191,15 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "LLM Agents",
+      Stack: "LLM Agents & Agentic Workflows",
       progressPercentage: "80%"
     },
     {
-      Stack: "Machine learning",
+      Stack: "Machine Learning & Deep Learning",
       progressPercentage: "70%"
     },
     {
-      Stack: "Quant Finance",
+      Stack: "Quantitative Finance",
       progressPercentage: "50%"
     },
   ],
@@ -263,6 +270,61 @@ const workExperiences = {
   ]
 };
 
+/* Selected projects.
+   These are shown when GitHub's pinned repositories are not available
+   (the site can load pins at build time via fetch.js + a GitHub token).
+   Edit this list freely — it is plain data. */
+
+const selectedProjects = {
+  title: "Selected Projects",
+  subtitle:
+    "Systems I have designed and built across agentic AI, market data infrastructure and machine learning.",
+  projects: [
+    {
+      name: "tradeagents",
+      description:
+        "A multi-agent LLM research framework for equity and crypto markets, coordinating specialised agents for research, signals and risk.",
+      language: "Python",
+      url: "https://github.com/A-janjan/tradeagents"
+    },
+    {
+      name: "alphapipe",
+      description:
+        "Production-grade market data and ML signal serving platform: ingestion, feature pipelines and low-latency model serving.",
+      language: "Python",
+      url: "https://github.com/A-janjan/alphapipe"
+    },
+    {
+      name: "ModelForge",
+      description:
+        "An ML model serving gateway that packages, versions and exposes trained models behind a single, observable API.",
+      language: "Python",
+      url: "https://github.com/A-janjan/ModelForge"
+    },
+    {
+      name: "openKS",
+      description:
+        "Open knowledge search: retrieval pipelines that turn heterogeneous sources into a queryable knowledge base.",
+      language: "Python",
+      url: "https://github.com/A-janjan/openKS"
+    },
+    {
+      name: "quantumgreeks",
+      description:
+        "A high-performance options pricing and risk engine covering Greeks, scenario analysis and portfolio sensitivities.",
+      language: "HTML",
+      url: "https://github.com/A-janjan/quantumgreeks"
+    },
+    {
+      name: "market-miner",
+      description:
+        "AI-powered B2B prospect intelligence and verification pipeline combining crawling, enrichment and LLM extraction.",
+      language: "Python",
+      url: "https://github.com/A-janjan/market-miner"
+    }
+  ]
+};
+
 /* Your Open Source Section to View Your Github Pinned Projects
 To know how to get github key look at readme.md */
 
@@ -298,9 +360,9 @@ const bigProjects = {
 // Include certificates, talks etc
 
 const achievementSection = {
-  title: emoji("Achievements And Certifications 🏆 "),
+  title: "Achievements",
   subtitle:
-    "Achievements, Certifications, Award Letters and Some Cool Stuff that I have done !",
+    "Awards, certifications and academic milestones.",
 
   achievementsCards: [
 
@@ -335,7 +397,7 @@ const blogSection = {
   subtitle:
     "Sharing insights on AI, LLM Agents, Multi-Agent Systems, Quantitative Finance, and Software Engineering.",
 
-  displayMediumBlogs: "true",
+  displayMediumBlogs: "false",
 
   blogs: [
     {
@@ -412,6 +474,7 @@ const isHireable = true; // Set false if you are not looking for a job. Also isH
 
 export {
   illustration,
+  selectedProjects,
   greeting,
   socialMediaLinks,
   splashScreen,

@@ -1,68 +1,56 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import {illustration, skillsSection} from "../../portfolio";
+import SectionHeading from "../../components/sectionHeading/SectionHeading";
+import {skillsSection} from "../../portfolio";
 import {Fade} from "react-reveal";
-import codingPerson from "../../assets/lottie/codingPerson";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import StyleContext from "../../contexts/StyleContext";
 
 export default function Skills() {
-  const {isDark} = useContext(StyleContext);
   if (!skillsSection.display) {
     return null;
   }
   return (
-    <div className={isDark ? "dark-mode main" : "main"} id="skills">
-      <div className="skills-main-div">
-        <Fade left duration={1000}>
-          <div className="skills-image-div">
-            {illustration.animated ? (
-              <DisplayLottie animationData={codingPerson} />
-            ) : (
-              <img
-                alt="Man Working"
-                src={require("../../assets/images/developerActivity.svg")}
-              ></img>
-            )}
-          </div>
+    <section className="main skills-section" id="skills">
+      <Fade bottom duration={800} distance="16px">
+        <SectionHeading
+          index="01"
+          kicker="Capabilities"
+          title={skillsSection.title}
+          lead={skillsSection.subTitle}
+        />
+      </Fade>
+
+      <div className="skills-grid">
+        <Fade left duration={800} distance="16px">
+          <ul className="skills-list">
+            {skillsSection.skills.map((skill, i) => (
+              <li key={i}>
+                <span className="skills-list__index">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="skills-list__text">{skill}</span>
+              </li>
+            ))}
+          </ul>
         </Fade>
-        <Fade right duration={1000}>
-          <div className="skills-text-div">
-            <h1
-              className={isDark ? "dark-mode skills-heading" : "skills-heading"}
-            >
-              {skillsSection.title}{" "}
-            </h1>
-            <p
-              className={
-                isDark
-                  ? "dark-mode subTitle skills-text-subtitle"
-                  : "subTitle skills-text-subtitle"
-              }
-            >
-              {skillsSection.subTitle}
-            </p>
-            <SoftwareSkill />
-            <div>
-              {skillsSection.skills.map((skills, i) => {
-                return (
-                  <p
-                    key={i}
-                    className={
-                      isDark
-                        ? "dark-mode subTitle skills-text"
-                        : "subTitle skills-text"
-                    }
-                  >
-                    {skills}
-                  </p>
-                );
-              })}
+
+        <Fade right duration={800} distance="16px">
+          <aside className="skills-panel mx-panel">
+            <div className="skills-panel__head">
+              <span className="skills-panel__title">stack.manifest</span>
+              <span className="skills-panel__status">
+                <i aria-hidden="true" /> loaded
+              </span>
             </div>
-          </div>
+            <SoftwareSkill />
+            <div className="skills-panel__foot">
+              <span>python-first</span>
+              <span>·</span>
+              <span>research &amp; production</span>
+            </div>
+          </aside>
         </Fade>
       </div>
-    </div>
+    </section>
   );
 }

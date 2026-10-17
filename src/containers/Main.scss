@@ -1,7 +1,34 @@
 @import "../_globalColor";
 
+.app-root {
+  min-height: 100vh;
+  background: transparent;
+  color: $mx-text;
+}
+
 .dark-mode {
-  background-color: $darkBackground;
-  color: white;
-  transition: "0.1s";
+  background: transparent;
+  color: $mx-text;
+}
+
+/* Very light CRT scanlines over the whole page (decorative only). */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.16) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  opacity: 0.11;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanlines {
+    display: none;
+  }
 }

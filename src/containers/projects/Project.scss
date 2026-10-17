@@ -1,32 +1,25 @@
-.project-title {
-  font-size: 52px;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.startup-project-text img {
-  max-width: 100%;
-  height: auto;
-}
+@import "../../_globalColor";
 
 .repo-cards-div-main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .project-title {
-    font-size: 40px;
-  }
+.repo-cards-div-main > div {
+  display: flex;
+  min-width: 0;
 }
+
+.project-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
 @media (max-width: 768px) {
-  .project-title {
-    font-size: 30px;
-    text-align: center;
-  }
   .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }

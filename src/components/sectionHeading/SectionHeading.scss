@@ -1,0 +1,42 @@
+@import "../../_globalColor";
+
+/* Heading styles live in App.scss so every section shares them.
+   This file only holds optional section-specific refinements. */
+
+.section-head .section-title {
+  text-wrap: balance;
+}
+
+/* Placeholder that reserves the exact final width before the decode runs */
+.section-title__ghost {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* The "// 04" kicker slides in together with the title decode */
+.section-head.is-decoded .section-kicker {
+  animation: kicker-in 420ms ease-out both;
+}
+
+@keyframes kicker-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-kicker {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-head .section-lead {
+    font-size: 0.92rem;
+  }
+}

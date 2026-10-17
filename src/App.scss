@@ -1,7 +1,11 @@
 @import "./globalColor";
 
+/* ==========================================================================
+   Global layout & shared UI
+   ========================================================================== */
+
 .App {
-  text-align: center;
+  text-align: left;
   width: 100%;
   overflow-x: hidden;
 }
@@ -11,20 +15,616 @@
 }
 
 .App-header {
-  background-color: $appHeaderBG;
+  background-color: $mx-bg;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(0.625rem + 2vmin);
-  color: $textColorDark;
+  color: $mx-ink;
 }
 
 .App-link {
-  color: $appLink;
+  color: $mx-green;
 }
 
 .subTitle {
-  color: $subTitle;
+  color: $mx-muted !important;
+}
+
+/* Page background -------------------------------------------------------- */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      900px 520px at 88% -6%,
+      rgba(74, 222, 128, 0.1),
+      transparent 65%
+    ),
+    radial-gradient(
+      720px 480px at -8% 22%,
+      rgba(34, 197, 94, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      1200px 700px at 50% 115%,
+      rgba(0, 0, 0, 0.6),
+      transparent 70%
+    );
+}
+
+/* Soft, slowly drifting light band — the page’s only ambient motion. */
+.page-bg::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 1400px;
+  height: 900px;
+  transform: translateX(-50%);
+  background: conic-gradient(
+    from 200deg at 50% 50%,
+    transparent 0deg,
+    rgba(74, 222, 128, 0.05) 60deg,
+    transparent 120deg
+  );
+  filter: blur(40px);
+  animation: page-aurora 26s ease-in-out infinite alternate;
+}
+
+@keyframes page-aurora {
+  from {
+    transform: translateX(-56%) rotate(-4deg);
+    opacity: 0.55;
+  }
+  to {
+    transform: translateX(-44%) rotate(5deg);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-bg::after {
+    animation: none;
+  }
+}
+
+/* Section shell ---------------------------------------------------------- */
+.main {
+  width: min(1180px, 92%);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 92px 0 8px;
+  position: relative;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    $mx-line-strong 0%,
+    $mx-line 18%,
+    transparent 70%
+  );
+  opacity: 0.55;
+}
+
+/* Section heading -------------------------------------------------------- */
+.section-head {
+  margin-bottom: 44px;
+  max-width: 780px;
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $mx-mono;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $mx-muted;
+  margin: 0 0 14px;
+}
+
+.section-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 6px;
+  border: 1px solid $mx-line-strong;
+  border-radius: 3px;
+  color: $mx-green;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  background: rgba(74, 222, 128, 0.06);
+}
+
+.section-kicker .slash {
+  color: rgba(74, 222, 128, 0.4);
+  letter-spacing: 0;
+}
+
+.section-title {
+  margin: 0;
+  font-family: $mx-mono;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: $mx-ink;
+}
+
+.section-title .accent {
+  color: $mx-green;
+}
+
+.section-lead {
+  margin: 16px 0 0;
+  max-width: 680px;
+  color: $mx-muted;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Legacy section headings (kept for any section that does not use
+   <SectionHeading />) */
+.skills-heading,
+.education-heading,
+.experience-heading,
+.project-title,
+.blog-header-text,
+.talk-header-title,
+.podcast-header-title,
+.prof-title,
+.achievement-heading,
+.heading {
+  font-family: $mx-mono;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: $mx-ink;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+/* Panels, chips, misc ---------------------------------------------------- */
+.mx-panel {
+  @include mx-panel;
+}
+
+.mx-panel::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 14px;
+  height: 14px;
+  border-top: 1px solid $mx-line-strong;
+  border-left: 1px solid $mx-line-strong;
+  border-top-left-radius: 6px;
+  pointer-events: none;
+}
+
+.mx-panel::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 1px solid $mx-line-strong;
+  border-right: 1px solid $mx-line-strong;
+  border-bottom-right-radius: 6px;
+  pointer-events: none;
+}
+
+.mx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px;
+  border: 1px solid $mx-line;
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.04);
+  font-family: $mx-mono;
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  color: $mx-text;
+  white-space: nowrap;
+}
+
+.mx-chip::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $mx-green;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.85);
+}
+
+.mx-bullets {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.mx-bullets li {
+  position: relative;
+  padding-left: 20px;
+  margin: 0 0 9px;
+  color: $mx-text;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.mx-bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: $mx-green;
+  font-size: 0.85rem;
+}
+
+/* Selection / focus polish */
+::selection {
+  background: rgba(74, 222, 128, 0.28);
+}
+
+/* Large screens */
+@media (max-width: 1380px) {
+  .main {
+    width: 92%;
+    padding-top: 76px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  .main {
+    width: 90%;
+    padding-top: 64px;
+  }
+  .main::before {
+    top: 42px;
+  }
+  .section-head {
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .mx-bullets li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility: keyboard-only skip link ---------------------------------- */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: $mx-green;
+  color: #04120b;
+  font-family: $mx-mono;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Print — a clean, ink-friendly résumé for PDF export
+   ========================================================================== */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    /* react-reveal keeps off-screen content at opacity 0; printing needs it all */
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .page-bg,
+  .hero::after,
+  .scanlines,
+  .matrix-rain,
+  .header,
+  .headroom-wrapper,
+  .skip-link,
+  #topButton,
+  .hero__scroll,
+  .social-media-div,
+  .hero__actions,
+  .project-button,
+  .footer__nav,
+  .footer__base,
+  .footer__top,
+  .contact-term,
+  .hero__status-dot,
+  .hero__role-cursor,
+  .hero__sweep,
+  .mx-text__caret,
+  .term__caret,
+  .contact-term__caret,
+  .logo__cursor,
+  .footer__cursor {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 0 0 12pt;
+    border-bottom: 1pt solid #ccc;
+  }
+
+  .hero__inner {
+    display: block;
+    width: 100%;
+  }
+
+  .hero__title,
+  .hero__name,
+  .section-title,
+  .skills-heading,
+  .education-heading,
+  .experience-heading {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+    background: none !important;
+    text-shadow: none !important;
+  }
+
+  .hero::after {
+    background: none !important;
+  }
+
+  .hero__status,
+  .hero__role,
+  .hero__role-text,
+  .section-lead,
+  .post-card__path,
+  .award-card__date,
+  .mx-chip,
+  .section-kicker,
+  .edu-card__date,
+  .xp-card__date,
+  .project-card__lang,
+  .post-card__foot,
+  .award-card__verified {
+    color: #333 !important;
+    border-color: #bbb !important;
+    background: none !important;
+  }
+
+  .hero__terminal {
+    display: none;
+  }
+
+  .main {
+    width: 100% !important;
+    padding: 14pt 0 0 !important;
+    page-break-inside: auto;
+  }
+
+  .main::before {
+    display: none;
+  }
+
+  .section-head {
+    margin-bottom: 10pt;
+    page-break-after: avoid;
+  }
+
+  .mx-panel,
+  .xp-card,
+  .edu-card,
+  .project-card,
+  .post-card,
+  .award-card,
+  .proficiency-panel,
+  .skills-panel {
+    background: #fff !important;
+    border-color: #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .experience-cards-div,
+  .repo-cards-div-main,
+  .blog-cards-div,
+  .achievement-cards-div {
+    display: block !important;
+  }
+
+  .experience-cards-div > div,
+  .repo-cards-div-main > div,
+  .blog-cards-div > div {
+    margin-bottom: 10pt;
+    page-break-inside: avoid;
+  }
+
+  .mx-bullets li,
+  .subTitle,
+  .hero__summary,
+  .project-card__desc,
+  .post-card__desc,
+  .xp-card__desc,
+  .edu-card__desc,
+  .skills-list__text {
+    color: #222 !important;
+  }
+
+  .mx-bullets li::before {
+    color: #555 !important;
+  }
+
+  /* Fade/slide animations leave inline opacity on their wrappers */
+  .react-reveal,
+  [class*="react-reveal"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Keep the stack list readable: icons alone are too low-contrast on paper */
+  .software-skill-inline > i {
+    color: #333 !important;
+    opacity: 1 !important;
+  }
+
+  .software-skill-inline > p {
+    color: #111 !important;
+  }
+
+  .software-skill-inline:hover > p {
+    color: #111 !important;
+  }
+
+  .skills-panel__title,
+  .skills-panel__status,
+  .skills-panel__foot,
+  .proficiency-row__name,
+  .proficiency-row__value,
+  .proficiency-foot,
+  .skills-list__index,
+  .section-index {
+    color: #333 !important;
+  }
+
+  .proficiency-track {
+    border-color: #bbb !important;
+    background: #eee !important;
+  }
+
+  .proficiency-fill {
+    background: #2f7d4f !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .edu-card__logo,
+  .xp-card__logo,
+  .award-card__media {
+    background: #fff !important;
+    border-color: #ccc !important;
+  }
+
+  .edu-card__logo img,
+  .xp-card__logo img,
+  .award-card__media img {
+    filter: grayscale(1) !important;
+    opacity: 1 !important;
+  }
+
+  .footer {
+    margin-top: 16pt;
+    border-top: 1pt solid #ccc;
+    background: none !important;
+  }
+
+  .footer__inner {
+    display: block;
+    padding: 10pt 0;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print: the animated MatrixText spans can be mid-scramble when someone hits
+   print, so paper always gets the plain, screen-reader copy of the string. */
+@media print {
+  .mx-text > span[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  .mx-text .sr-only {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: pre-wrap !important;
+    border: 0 !important;
+  }
+
+  /* A heading that had not decoded yet still shows its reserved placeholder */
+  .section-title__ghost {
+    visibility: visible !important;
+    display: inline !important;
+  }
+
+  .section-head .section-title > * {
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .mx-char--pending {
+    color: inherit !important;
+    text-shadow: none !important;
+  }
 }

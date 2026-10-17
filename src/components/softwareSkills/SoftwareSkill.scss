@@ -1,31 +1,74 @@
 @import "../../_globalColor";
 
+.software-skills-main-div {
+  padding: 18px;
+}
+
 .dev-icons {
-  padding-left: 0;
   list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 12px;
 }
 
 .software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+
+.software-skill-inline:hover {
+  border-color: rgba(74, 222, 128, 0.22);
+  background: rgba(74, 222, 128, 0.05);
 }
 
 .software-skill-inline > i {
-  color: $subTitle;
+  width: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: $mx-green;
+  opacity: 0.75;
+  transition: opacity 0.16s ease;
 }
 
-.software-skill-inline > i:hover {
-  color: $skillsColor;
+.software-skill-inline:hover > i {
+  opacity: 1;
 }
+
 .software-skill-inline > p {
-  color: $subTitle;
-  font-size: 10px;
+  margin: 0;
+  font-family: $mx-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: $mx-muted;
+  transition: color 0.16s ease;
 }
-.software-skill-inline > i:hover ~ p {
-  color: $skillsColor;
+
+.software-skill-inline:hover > p {
+  color: $mx-ink;
+}
+
+@media (max-width: 768px) {
+  .dev-icons {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px;
+  }
+  .software-skills-main-div {
+    padding: 12px;
+  }
+  .software-skill-inline > p {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .dev-icons {
+    grid-template-columns: 1fr;
+  }
 }

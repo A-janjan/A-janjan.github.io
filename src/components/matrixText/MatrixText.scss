@@ -1,0 +1,72 @@
+@import "../../_globalColor";
+
+.mx-text {
+  white-space: pre-wrap;
+}
+
+.mx-char {
+  display: inline-block;
+}
+
+.mx-char--pending {
+  color: rgba(74, 222, 128, 0.42);
+}
+
+/*
+ * Every character flashes once, at the moment it locks in. The animation ends
+ * on the inherited colour, so long after the reveal nothing is left glowing.
+ */
+.mx-char--locked {
+  color: inherit;
+  animation: mx-char-decrypt 300ms ease-out 1;
+}
+
+@keyframes mx-char-decrypt {
+  0% {
+    filter: brightness(2.05) saturate(0.7);
+    text-shadow: 0 0 12px rgba(155, 247, 192, 0.95),
+      0 0 24px rgba(74, 222, 128, 0.6);
+  }
+  55% {
+    filter: brightness(1.25);
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  }
+  100% {
+    filter: none;
+    text-shadow: none;
+  }
+}
+
+.mx-text__caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 0.9em;
+  margin-left: 0.18em;
+  vertical-align: -0.06em;
+  background: $mx-green;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+  animation: mx-caret 1.05s steps(1) infinite;
+}
+
+@keyframes mx-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mx-char--pending {
+    color: inherit;
+  }
+  .mx-char--locked {
+    animation: none;
+  }
+  .mx-text__caret {
+    animation: none;
+  }
+}
