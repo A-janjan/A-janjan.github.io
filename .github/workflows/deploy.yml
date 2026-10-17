@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; do not cancel in-progress ones.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm # drop this line if you have no package-lock.json
+
+      - name: Install dependencies
+        # `npm ci` needs package-lock.json committed; otherwise use `npm install`
+        run: npm ci
+
+      - name: Build
+        # CI:false => don't fail the deploy on ESLint warnings (CRA only)
+        # PUBLIC_URL:"/" => user site (a-janjan.github.io). For a project site
+        # (user.github.io/repo) use "/repo" or ${{ steps.pages.outputs.base_path }}
+        env:
+          CI: "false"
+          PUBLIC_URL: "/"
+          GENERATE_SOURCEMAP: "false"
+        run: npm run build
+
+      - name: Disable Jekyll processing
+        run: touch build/.nojekyll
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build # CRA -> build; Vite/Angular -> dist; see note below
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
