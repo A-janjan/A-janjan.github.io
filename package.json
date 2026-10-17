@@ -1,37 +1,34 @@
 {
-  "homepage": "https://a-janjan.github.io/",
-  "name": "Janjan-Portfolio",
-  "version": "0.1.0",
+  "name": "janjan-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "Amir M. Janjan \u2014 Matrix-inspired r\u00e9sum\u00e9 portfolio built with React + Vite",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch:github": "node fetch.js",
+    "format": "prettier --write \"./**/*.{js,css,json,scss,html}\"",
+    "check-format": "prettier -c \"./**/*.{js,css,json,scss,html}\""
+  },
   "dependencies": {
-    "colorthief": "^2.2.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "gh-pages": "^6.2.0",
-    "jest-canvas-mock": "^2.3.1",
+    "@babel/runtime": "^7.26.0",
     "lottie-react": "^2.4.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-easy-emoji": "^1.8.1",
     "react-headroom": "^3.0.0",
     "react-reveal": "^1.2.2",
-    "react-scripts": "^5.0.1",
-    "react-test-renderer": "^16.10.2",
-    "react-twitter-embed": "3.0.3",
-    "sass": "^1.32.8"
+    "react-twitter-embed": "3.0.3"
   },
-  "scripts": {
-    "predeploy": "npm run build",
-    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && node fetch.js && react-scripts start",
-    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && node fetch.js && react-scripts build",
-    "deploy": "gh-pages -b master -d build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
-    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\""
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "dotenv": "^8.2.0",
+    "prettier": "^2.3.1",
+    "sass": "~1.77.8",
+    "vite": "^5.4.11"
   },
   "browserslist": {
     "production": [
@@ -41,18 +38,9 @@
       "not op_mini all"
     ],
     "development": [
-      ">0.3%",
-      "not ie 11",
-      "not dead",
-      "not op_mini all",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "dotenv": "^8.2.0",
-    "prettier": "^2.3.1"
   }
 }

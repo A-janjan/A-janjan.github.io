@@ -5,6 +5,16 @@
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
+// Logos & images (bundled by Vite)
+import utLogo from "./assets/images/ut_logo.png";
+import iustLogo from "./assets/images/Logo-IUST.png";
+import sampadLogo from "./assets/images/Sampad.png";
+import tehranNlpLogo from "./assets/images/University_of_Tehran_logo.png";
+import cvlabLogo from "./assets/images/cvlab_logo.png";
+import freelancerLogo from "./assets/images/freelancer.png";
+import saayaHealthLogo from "./assets/images/saayaHealthLogo.webp";
+import sanjeshLogo from "./assets/images/Sanjesh_logo.png";
+
 // Splash Screen
 
 const splashScreen = {
@@ -142,7 +152,7 @@ const educationInfo = {
   schools: [
     {
       schoolName: "University of Tehran",
-      logo: require("./assets/images/ut_logo.png"),
+      logo: utLogo,
       subHeader: "Master of Science in Artificial Intelligence and Robotics",
       duration: "2024 – Present",
       desc: "Focused on agentic AI, large language models, and quantitative finance applications.",
@@ -155,7 +165,7 @@ const educationInfo = {
     },
     {
       schoolName: "Iran University of Science and Technology",
-      logo: require("./assets/images/Logo-IUST.png"),
+      logo: iustLogo,
       subHeader: "Bachelor of Science in Electrical and Control Engineering",
       duration: "2019 — 2024",
       desc: "Courses and Achievements:",
@@ -171,7 +181,7 @@ const educationInfo = {
     },
     {
       schoolName: "National Organization for Development of Exceptional Talents (Sampad)",
-      logo: require("./assets/images/Sampad.png"),
+      logo: sampadLogo,
       subHeader: "Diploma of Mathematical and technical sciences",
       duration: "2013 — 2019",
       desc: "Courses and Achievements:",
@@ -214,7 +224,7 @@ const workExperiences = {
     {
       role: "Research Assistant",
       company: "University of Tehran NLP Lab",
-      companylogo: require("./assets/images/University_of_Tehran_logo.png"),
+      companylogo: tehranNlpLogo,
       date: "Nov 2024 – Present",
       desc: "Conducting research on multi-agent LLM systems, with a focus on planning, reasoning, and decision-making for real-world applications.",
       descBullets: [
@@ -227,7 +237,7 @@ const workExperiences = {
     {
       role: "Robotics Engineer",
       company: "IUST Robotics Lab",
-      companylogo: require("./assets/images/Logo-IUST.png"),
+      companylogo: iustLogo,
       date: "Jan 2024 – Jul 2024",
       desc: "Developed a smartphone-based autonomous robot capable of real-time human tracking using onboard computer vision and control algorithms.",
       descBullets: [
@@ -241,7 +251,7 @@ const workExperiences = {
     {
       role: "Computer Vision Engineer Intern",
       company: "IUST CVLab",
-      companylogo: require("./assets/images/cvlab_logo.png"),
+      companylogo: cvlabLogo,
       date: "Jul 2023 – Sep 2023",
       desc: "Worked on computer vision and deep learning projects, focusing on model optimization and deployment on edge AI platforms.",
       descBullets: [
@@ -255,7 +265,7 @@ const workExperiences = {
     {
       role: "Freelance AI & Backend Developer",
       company: "Freelance",
-      companylogo: require("./assets/images/freelancer.png"),
+      companylogo: freelancerLogo,
       date: "Jun 2022 – Present",
       desc: "Providing freelance services in Python backend development and AI-powered software solutions.",
       descBullets: [
@@ -340,7 +350,7 @@ const bigProjects = {
   subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
+      image: saayaHealthLogo,
       projectName: "Saayahealth",
       projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
       footerLink: [
@@ -370,7 +380,7 @@ const achievementSection = {
       title: "1st rank in the information technology(IT) national entrance exam",
       subtitle:
         "February 2024",
-      image: require("./assets/images/Sanjesh_logo.png"),
+      image: sanjeshLogo,
       imageAlt: "Sanjesh Logo",
 
       footerLink: [

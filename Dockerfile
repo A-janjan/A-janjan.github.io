@@ -1,29 +1,29 @@
-# This file is the main docker file configurations
+# Production-ish image for the Vite build.
+# Vite 5 needs Node 18+, so this no longer runs on the old node:10 base.
 
-# Official Node JS runtime as a parent image
-FROM node:10.16.0-alpine
+FROM node:20-alpine AS build
 
-# Set the working directory to ./app
 WORKDIR /app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package.json ./
+# Install dependencies from the lockfile first (better layer caching).
+COPY package.json package-lock.json ./
+RUN npm ci
 
-RUN apk add --no-cache git
+# Bundle app source and build.
+COPY . .
+RUN npm run build
 
-# Install any needed packages
-RUN npm install
+# ---- runtime ----
+FROM node:20-alpine
 
-# Audit fix npm packages
-RUN npm audit fix
+WORKDIR /app
+ENV NODE_ENV=production
 
-# Bundle app source
-COPY . /app
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package.json ./package.json
 
-# Make port 3000 available to the world outside this container
-EXPOSE 3000
+RUN npm install -g serve@14
 
-# Run app.js when the container launches
-CMD ["npm", "start"]
+EXPOSE 4173
+
+CMD ["serve", "-s", "dist", "-l", "4173"]

@@ -1,5 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Builds the Vite app and deploys ./dist with GitHub's native Pages actions.
+#
+# One-time repo setting this depends on:
+#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
+#
+# Trigger: every push to `main`, or manually via "Run workflow".
+# Nothing is written back to any branch; the artifact is deployed directly.
+
 on:
   push:
     branches: ["main"]
@@ -10,7 +18,8 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; do not cancel in-progress ones.
+# One deployment at a time; let in-progress ones finish instead of cancelling
+# (cancelling mid-deploy can leave the Pages CDN serving a half-uploaded site).
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -26,24 +35,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm # drop this line if you have no package-lock.json
+          cache: npm
 
       - name: Install dependencies
-        # `npm ci` needs package-lock.json committed; otherwise use `npm install`
+        # Plain `npm ci` — it only works when package-lock.json matches
+        # package.json, which is why the lockfile must be committed and
+        # regenerated (`npm install`) whenever dependencies change.
         run: npm ci
 
       - name: Build
-        # CI:false => don't fail the deploy on ESLint warnings (CRA only)
-        # PUBLIC_URL:"/" => user site (a-janjan.github.io). For a project site
-        # (user.github.io/repo) use "/repo" or ${{ steps.pages.outputs.base_path }}
-        env:
-          CI: "false"
-          PUBLIC_URL: "/"
-          GENERATE_SOURCEMAP: "false"
+        # `base` is "/" by default, which is what a user site
+        # (a-janjan.github.io) needs. For a project site, build with
+        # VITE_BASE="/<repo>/" instead — see vite.config.js.
         run: npm run build
-
-      - name: Disable Jekyll processing
-        run: touch build/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -51,14 +55,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build # CRA -> build; Vite/Angular -> dist; see note below
+          path: ./dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
